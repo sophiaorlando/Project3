@@ -11,16 +11,21 @@ function App() {
 
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [brand, setBrand] = useState('')
   const [sneakers, setSneakers] = useState({})
 
-  const search = () => {
-    fetch("https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=jordan&releaseDate=lte:2019-10-11&name=travis%20scott")
+  const search = evt => {
+    if (evt.key === "Enter") {
+    fetch(`https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=${brand}`)
+    //&releaseDate=lte:2019-10-11&name=travis%20scott
       .then(res => res.json())
       .then((result) => {
         setIsLoaded(true)
+        setBrand('')
         setSneakers(result)
         console.log(result)
       })
+    }
   }
 
 
@@ -31,11 +36,21 @@ function App() {
           type="text"
           className="search-bar"
           placeholder="Search..."
-          // onChange={e => setQuery(e.target.value)}
-          // value={query}
+          onChange={e => setBrand(e.target.value)}
+          value={brand}
           onKeyPress={search}
         />
       </div>
+
+{(typeof sneakers.results != "undefined") ? (
+  <div>
+  <div>{sneakers.results[0].brand}</div> 
+  </div>
+
+) : ('')}
+
+  {/* <div>{sneakers.results}</div> */}
+  {/* <div>{!sneakers ? sneakers.results[0].brand : "No results to display"}</div> */}
     </main>
   );
 }
