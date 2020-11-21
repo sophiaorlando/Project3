@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 import "./App.css";
+import ProductCards from "./components/productCards/productscomponents";
 
 const api = {
   url:
-    "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=jordan&releaseDate=lte:2019-10-11&name=travis%20scott",
+    "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=jordan&releaseDate=lte:2019-10-11&name=travis%20scott"
 };
 
 function App() {
@@ -13,14 +14,14 @@ function App() {
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
 
-  const search = (evt) => {
+  const search = evt => {
     if (evt.key === "Enter") {
       fetch(
         `https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=${brand}`
       )
         //&releaseDate=lte:2019-10-11&name=travis%20scott
-        .then((res) => res.json())
-        .then((result) => {
+        .then(res => res.json())
+        .then(result => {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
@@ -36,11 +37,12 @@ function App() {
           type="text"
           className="search-bar"
           placeholder="Search..."
-          onChange={(e) => setBrand(e.target.value)}
+          onChange={e => setBrand(e.target.value)}
           value={brand}
           onKeyPress={search}
         />
       </div>
+      <ProductCards />
 
       {typeof sneakers.results != "undefined" ? (
         <div>
