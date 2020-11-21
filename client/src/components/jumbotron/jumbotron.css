@@ -8,8 +8,15 @@ h1.glow{
 }
 
 
-
 div.jumbotron{
   background-color: black;
-  height:600px;
+  height: 600px;
+  height: 100vh;
+}
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0rem !important;
 }

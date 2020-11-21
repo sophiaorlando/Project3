@@ -1,0 +1,10 @@
+.MuiToolbar-regular {
+    min-height: 56px;
+    width: 100% !important;
+}
+
+.MuiToolbar-root {
+    display: flex;
+    position: fixed !important;
+    align-items: center;
+}
