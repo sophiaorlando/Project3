@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./searchBar.css"
+
 // import App from "../App.js"
 
 function SearchBar(){
@@ -24,6 +26,7 @@ function SearchBar(){
     }
   };
   return(
+    <div>
     <div className="search-box">
     <input
       type="text"
@@ -34,6 +37,15 @@ function SearchBar(){
       onKeyPress={search}
     />
   </div>
+        {typeof sneakers.results != "undefined" ? (
+          <div>
+            <h3>{sneakers.results[0].brand}</h3>
+          </div>
+        ) : (
+          ""
+        )}
+    </div>
+
 
   )
 }
