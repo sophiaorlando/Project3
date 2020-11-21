@@ -1,0 +1,15 @@
+h1.glow{
+  text-align: center;
+    font-size: 80px;
+    font-family:Impact, Charcoal, sans-serif;
+    color: #e60026;
+    text-align: center;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60026, 0 0 20px #e60026, 0 0 25px #e60026, 0 0 30px #e60026, 0 0 35px #e60026;
+}
+
+
+
+div.jumbotron{
+  background-color: black;
+  height:600px;
+}

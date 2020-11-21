@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import CompJumbo from "./components/jumbotron/jumbotron"
+import SearchBar from "./components/searchBar/searchBar"
+
 
 import "./App.css";
 
@@ -31,7 +34,7 @@ function App() {
 
   return (
     <main>
-      <div className="search-box">
+      {/* <div className="search-box">
         <input
           type="text"
           className="search-bar"
@@ -40,7 +43,8 @@ function App() {
           value={brand}
           onKeyPress={search}
         />
-      </div>
+      </div> */}
+      {/* <SearchBar /> */}
 
       {typeof sneakers.results != "undefined" ? (
         <div>
@@ -49,6 +53,7 @@ function App() {
       ) : (
         ""
       )}
+      <CompJumbo />
 
       {/* <div>{sneakers.results}</div> */}
       {/* <div>{!sneakers ? sneakers.results[0].brand : "No results to display"}</div> */}
