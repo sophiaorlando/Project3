@@ -1,8 +1,16 @@
 import React, { useState } from "react";
+
+// import Jumbotron from '../jumbotron/jumbotron';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
+
+
 import "./searchBar.css"
-
-
-// import App from "../App.js"
 
 function SearchBar(){
 
@@ -10,6 +18,25 @@ function SearchBar(){
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
+
+  const brandsList = [
+    {brandName: "Adidas"},
+    {brandName: "Asics"},
+    {brandName: "Converse"},
+    {brandName: "Jordan"},
+    {brandName: "New Balance"},
+    {brandName: "Nike"},
+    {brandName: "Puma"},
+    {brandName: "Reebok"},
+    {brandName: "Saucony"},
+    {brandName: "Under Armour"},
+    {brandName: "Vans"}
+  ]
+
+  const defaultBrands = {
+    options: brandsList,
+    getOptionLabel: (option) => option.brandName,
+  };
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -27,48 +54,93 @@ function SearchBar(){
     }
   };
   return(
+
     <div>
-    <div className="search-box col">
+      <div className="brand-search">
+        <div className="search-box col" style={{ width: 300 }}>
+          <Autocomplete
+            {...defaultBrands}
+            id="auto-complete"
+            autoComplete
+            includeInputInList
+            renderInput={(params) => 
+              <TextField {...params} 
+              label="Search brand..." 
+              margin="normal" 
+              onChange={(e) => setBrand(e.target.value)}
+              value={brand}
+              onKeyPress={search}
+            />}
+          />
+        </div>
+      </div>
+     
+    {/* <div className="search-box col">
     <input
       type="text"
       className="search-bar"
-      placeholder="Search..."
+      placeholder="Search brand..."
       onChange={(e) => setBrand(e.target.value)}
       value={brand}
       onKeyPress={search}
     />
-  </div>
-
-  {/* <Form>
-  <Form.Group>
-    <Form.Label>Search Sneakers</Form.Label>
-    <Form.Control className="search-bar" type="text" placeholder="Search Sneaker Brands"
-          onChange={(e) => setBrand(e.target.value)}
-          value={brand}
-          onSubmit={search}
-    />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-  </Form> */}
-{/* 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form> */}
+  </div> */}
 
         {typeof sneakers.results != "undefined" ? (
+
           <div>
-            <h3>{sneakers.results[0].brand}</h3>
+            <Container className="product-container">
+              <Typography variant="h4" className="brand-title">
+                {sneakers.results[0].brand}
+              </Typography>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card className="card">
+                    <CardActionArea>
+                      <CardMedia
+                        className="media"
+                        image={sneakers.results[0].media.imageUrl}
+                      />
+                      <CardContent>
+                        <h5>{sneakers.results[0].name}</h5>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card className="card">
+                    <CardActionArea>
+                      <CardMedia
+                        className="media"
+                        image={sneakers.results[1].media.imageUrl}
+                      />
+                      <CardContent>
+                      <h5>{sneakers.results[1].name}</h5>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card className="card">
+                    <CardActionArea>
+                      <CardMedia
+                        className="media"
+                        image={sneakers.results[2].media.imageUrl}
+                      />
+                      <CardContent>
+                        <h5>{sneakers.results[2].name}</h5>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+  
+              </Grid>
+          
+            </Container>
+
           </div>
+
+
         ) : (
           ""
         )}
@@ -78,19 +150,3 @@ function SearchBar(){
   )
 }
 export default SearchBar;
-
-// import React from "react";
-// import { MDBCol, MDBFormInline, MDBIcon } from "mdbreact";
-
-// const SearchPage = () => {
-//   return (
-//     <MDBCol md="6">
-//       <MDBFormInline className="md-form">
-//         <MDBIcon icon="search" />
-//         <input className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" />
-//       </MDBFormInline>
-//     </MDBCol>
-//   );
-// }
-
-// export default SearchPage;

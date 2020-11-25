@@ -1,22 +1,27 @@
-h1.glow{
-  text-align: center;
-    font-size: 80px;
-    font-family:Impact, Charcoal, sans-serif;
-    color: #e60026;
-    text-align: center;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60026, 0 0 20px #e60026, 0 0 25px #e60026, 0 0 30px #e60026, 0 0 35px #e60026;
-}
-
-
 div.jumbotron{
-  background-color: black;
-  height: 600px;
-  height: 100vh;
+  /* background-color: black; */
+  /* background-image: url("https://media.giphy.com/media/QrdDUvcvFVjEpkAZGw/giphy.gif"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 50vh;
+  text-align: center;
+  align-content: center;
 }
 
 .jumbotron {
   padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   background-color: #e9ecef;
   border-radius: 0rem !important;
+}
+
+h1.glow{
+  text-align: center;
+  font-size: 85px;
+  font-family: Impact, Charcoal, sans-serif;
+  color: #e60026;
+  text-align: center;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60026, 0 0 20px #e60026, 0 0 25px #e60026, 0 0 30px #e60026, 0 0 35px #e60026;
+  margin-top: 20%;
 }
