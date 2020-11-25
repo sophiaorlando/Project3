@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
+    "concurrently": "^5.3.0",
     "nodemon": "^1.19.4"
   },
   "dependencies": {
@@ -25,9 +25,17 @@
     "bcrypt": "^5.0.0",
     "bootstrap": "^4.5.3",
     "express": "^4.16.3",
+    "g": "^2.0.1",
     "if-env": "^1.0.4",
+    "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
+    "material-auto-rotating-carousel": "^3.0.2",
+    "mdbreact": "^4.27.0",
     "mongoose": "^5.10.15",
-    "react-bootstrap": "^1.4.0"
+    "netlify-cli": "^2.68.8",
+    "react-bootstrap": "^1.4.0",
+    "react-browser-router": "^2.1.2",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
   }
 }
