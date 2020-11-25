@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 
-// import Jumbotron from '../jumbotron/jumbotron';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -50,10 +49,12 @@ function SearchBar(){
           setBrand("");
           setSneakers(result);
           console.log(result);
+          console.log(result.results);
         });
     }
   };
-  return(
+
+  return (
 
     <div>
       <div className="brand-search">
@@ -74,71 +75,61 @@ function SearchBar(){
           />
         </div>
       </div>
-     
-    {/* <div className="search-box col">
-    <input
-      type="text"
-      className="search-bar"
-      placeholder="Search brand..."
-      onChange={(e) => setBrand(e.target.value)}
-      value={brand}
-      onKeyPress={search}
-    />
-  </div> */}
-
-        {typeof sneakers.results != "undefined" ? (
-
-          <div>
-            <Container className="product-container">
-              <Typography variant="h4" className="brand-title">
-                {sneakers.results[0].brand}
-              </Typography>
-              <Grid container spacing={3}>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card className="card">
-                    <CardActionArea>
-                      <CardMedia
-                        className="media"
-                        image={sneakers.results[0].media.imageUrl}
-                      />
-                      <CardContent>
-                        <h5>{sneakers.results[0].name}</h5>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card className="card">
-                    <CardActionArea>
-                      <CardMedia
-                        className="media"
-                        image={sneakers.results[1].media.imageUrl}
-                      />
-                      <CardContent>
-                      <h5>{sneakers.results[1].name}</h5>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card className="card">
-                    <CardActionArea>
-                      <CardMedia
-                        className="media"
-                        image={sneakers.results[2].media.imageUrl}
-                      />
-                      <CardContent>
-                        <h5>{sneakers.results[2].name}</h5>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
-  
+    
+      {typeof sneakers.results != "undefined" ? (
+        
+        <div>
+          <Container className="product-container">
+            <Typography variant="h4" className="brand-title">
+              {sneakers.results[0].brand}
+            </Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className="card">
+                  <CardActionArea>
+                    <a
+                    href="/shoeInfo.js"
+                    >
+                    <CardMedia
+                      className="media"
+                      image={sneakers.results[0].media.imageUrl}
+                    />
+                    </a>
+                    <CardContent>
+                      <h5>{sneakers.results[0].name}</h5>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
               </Grid>
-          
-            </Container>
-
-          </div>
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className="card">
+                  <CardActionArea>
+                    <CardMedia
+                      className="media"
+                      image={sneakers.results[1].media.imageUrl}
+                    />
+                    <CardContent>
+                    <h5>{sneakers.results[1].name}</h5>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <Card className="card">
+                  <CardActionArea>
+                    <CardMedia
+                      className="media"
+                      image={sneakers.results[2].media.imageUrl}
+                    />
+                    <CardContent>
+                      <h5>{sneakers.results[2].name}</h5>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
 
 
         ) : (

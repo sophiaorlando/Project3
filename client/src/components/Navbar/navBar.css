@@ -15,8 +15,16 @@
     flex-grow: 1;
 }
 
+#link {
+    background-color: black;
+    padding: 1%;
+    width: fit-content;
+    text-decoration: none;
+    color: white;
+}
+
 .MuiTypography-h6 {
-    font-size: 1rem !important;
+    font-size: .8rem !important;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 1.8;
@@ -32,39 +40,14 @@
     display: block;
 }
 
-#link {
-    background-color: black;
-    padding: 1%;
-}
-
 .search {
     position: relative;
     width: auto;
     margin-left: 0;
 }
 
-.search-icon {
-    /* padding: 0 8px; */
-    height: '100%';
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .input {
     color: white !important;
-    /* background-color: violet; */
-}
-
-.classes.searchIcon {
-    height: '100%';
-    position: 'absolute';
-    pointer-events: 'none';
-    display: 'flex';
-    align-items: 'center';
-    justify-content: 'center';
 }
 
 .account-circle {
