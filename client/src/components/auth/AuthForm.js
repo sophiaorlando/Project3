@@ -23,7 +23,7 @@ const AuthForm = (props) => {
     const response = await fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ userName, password }),
+      body: JSON.stringify({ username: userName, password }),
     });
 
     const json = await response.json();
@@ -80,6 +80,7 @@ const AuthForm = (props) => {
       xs={12}
       justify="center"
       alignItems="center"
+      style={{ height: "100%" }}
     >
       <Grid
         container
