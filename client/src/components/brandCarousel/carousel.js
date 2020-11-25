@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavigateBeforeSharpIcon from "@material-ui/icons/NavigateBeforeSharp";
 import NavigateNextSharpIcon from "@material-ui/icons/NavigateNextSharp";
 import Typography from "@material-ui/core/Typography";
@@ -13,8 +13,11 @@ import {
 
 import "./carousel.css";
 import { NavigateBeforeSharp } from "@material-ui/icons";
+import { Carousel } from "react-bootstrap";
 
-function Carousel() {
+function CarouselApp(props) {
+  const [imageData, setImage] = useState({});
+
   let carArr = [
     <div className="slide-container">
       <Container>
@@ -28,10 +31,10 @@ function Carousel() {
               <CardActionArea>
                 <CardMedia
                   className="media"
-                  // image={sneakers.results[0].media.imageUrl}
                   image={
-                    "https://images.pexels.com/photos/5645518/pexels-photo-5645518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    "https://images.pexels.com/photos/5596125/pexels-photo-5596125.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                   }
+                  // image={}
                 />
                 <CardContent>
                   {/* <h5>{sneakers.results[0].name}</h5> */}
@@ -141,7 +144,7 @@ function Carousel() {
 
   return (
     <div className="slider">
-      {carArr.map((item, index) => {
+      {carArr.map((item, index, props) => {
         return (
           <div
             key={index}
@@ -163,4 +166,4 @@ function Carousel() {
   );
 }
 
-export default Carousel;
+export default CarouselApp;
