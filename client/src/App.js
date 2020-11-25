@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import CompJumbo from "./components/jumbotron/jumbotron";
-// import Navbar from "./components/Navbar";
 import AuthForm from "./components/auth/AuthForm";
+import PrivateRoute from "./components/route_types/PrivateRoute";
+import Home from "./pages/home";
 import { AuthContext } from "./components/auth/auth";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -45,13 +45,15 @@ function App() {
         setUserName: setUserName,
       }}
     >
-      <BrowserRouter>
-        <main>
-          <AuthForm />
-          {/* <Navbar></Navbar>
-      <CompJumbo /> */}
-        </main>
-      </BrowserRouter>
+      <main>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/login" component={AuthForm} />
+            <Route exact path="/signup" component={AuthForm} />
+            <PrivateRoute exact path="/home" component={Home} />
+          </Switch>
+        </BrowserRouter>
+      </main>
     </AuthContext.Provider>
   );
 }

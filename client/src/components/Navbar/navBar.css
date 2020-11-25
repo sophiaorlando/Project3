@@ -1,0 +1,73 @@
+.MuiToolbar-regular {
+    min-height: 56px;
+    width: 100% !important;
+    background-color: lightslategray;
+    z-index: 9999;
+}
+
+.MuiToolbar-root {
+    display: flex;
+    position: fixed !important;
+    align-items: center;
+}
+
+.root {
+    flex-grow: 1;
+}
+
+.MuiTypography-h6 {
+    font-size: 1rem !important;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.0075em;
+}
+
+.menu-btn {
+    margin-right: 8px;
+}
+
+.title {
+    flex-grow: 1;
+    display: block;
+}
+
+#link {
+    background-color: black;
+    padding: 1%;
+}
+
+.search {
+    position: relative;
+    width: auto;
+    margin-left: 0;
+}
+
+.search-icon {
+    /* padding: 0 8px; */
+    height: '100%';
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    color: white !important;
+    /* background-color: violet; */
+}
+
+.classes.searchIcon {
+    height: '100%';
+    position: 'absolute';
+    pointer-events: 'none';
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+}
+
+.account-circle {
+    margin-left: 15px;
+    margin-right: 15px;
+}
