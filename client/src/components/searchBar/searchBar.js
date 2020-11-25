@@ -2,34 +2,38 @@ import React, { useState, Component } from "react";
 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+// import CarouselApp from "../brandCarousel/carousel"
 
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
-
+import SneakerResults from "../SneakerResultImgs/index"
 
 import "./searchBar.css"
 
-function SearchBar(){
+function SearchBar() {
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
+  // props.sneakers.results[0].media.imageUrl
   const [sneakers, setSneakers] = useState({});
 
+  // const [sneakers, setSneakers] = useState({ results: [{ media: { imgUrl: "https://via.placeholder.com/150" } }] });
+
   const brandsList = [
-    {brandName: "Adidas"},
-    {brandName: "Asics"},
-    {brandName: "Converse"},
-    {brandName: "Jordan"},
-    {brandName: "New Balance"},
-    {brandName: "Nike"},
-    {brandName: "Puma"},
-    {brandName: "Reebok"},
-    {brandName: "Saucony"},
-    {brandName: "Under Armour"},
-    {brandName: "Vans"}
+    { brandName: "Adidas" },
+    { brandName: "Asics" },
+    { brandName: "Converse" },
+    { brandName: "Jordan" },
+    { brandName: "New Balance" },
+    { brandName: "Nike" },
+    { brandName: "Puma" },
+    { brandName: "Reebok" },
+    { brandName: "Saucony" },
+    { brandName: "Under Armour" },
+    { brandName: "Vans" }
   ]
 
   const defaultBrands = {
@@ -54,6 +58,13 @@ function SearchBar(){
     }
   };
 
+<<<<<<< HEAD
+=======
+  // let sneakerData = sneakers.results.map(sneaker => {
+  //   const SneakerImg = sneaker.media.imageUrl
+  // })
+
+>>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
   return (
 
     <div>
@@ -64,17 +75,18 @@ function SearchBar(){
             id="auto-complete"
             autoComplete
             includeInputInList
-            renderInput={(params) => 
-              <TextField {...params} 
-              label="Search brand..." 
-              margin="normal" 
-              onChange={(e) => setBrand(e.target.value)}
-              value={brand}
-              onKeyPress={search}
-            />}
+            renderInput={(params) =>
+              <TextField {...params}
+                label="Search brand..."
+                margin="normal"
+                onChange={(e) => setBrand(e.target.value)}
+                value={brand}
+                onKeyPress={search}
+              />}
           />
         </div>
       </div>
+<<<<<<< HEAD
     
       {typeof sneakers.results != "undefined" ? (
         
@@ -135,9 +147,15 @@ function SearchBar(){
         ) : (
           ""
         )}
+=======
+      <SneakerResults
+      sneakers={sneakers}
+      />
+>>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
     </div>
 
 
   )
 }
 export default SearchBar;
+
