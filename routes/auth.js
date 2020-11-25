@@ -25,7 +25,7 @@ module.exports = router.post("/", async (req, res) => {
         {
           username: newUser.username,
         },
-        "",
+        "secret",
         (err, token) => {
           if (err) throw err;
           res.send({
@@ -61,7 +61,7 @@ router.post("/logic", (req, res) => {
         {
           username: newUser.username,
         },
-        "",
+        "secret",
         (err, token) => {
           if (err) throw err;
           res.send({

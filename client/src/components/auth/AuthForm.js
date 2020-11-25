@@ -1,30 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Card, Typography, Button, TextField } from "@material-ui/core";
+import { Link, withRouter } from "react-router-dom";
 import { useAuth } from "./auth";
 
 const AuthForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [action, setAction] = useState("Sign In");
-  const { setUserName, setAuthToken, user_name } = setAuth();
+  const { setUserName, setAuthToken, user_name } = useAuth();
 
   const authenticate = async () => {
-    // SERVER SIDE PATH
-    const basePath = "/api/auth/";
+    const basePath = "api/auth/"; // server side path
     let url = basePath;
 
     if (action === "Sign In") {
       url += "login";
     }
+
     console.log(url);
+    console.log(action);
+
     const response = await fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ username, password }),
     });
+
     const json = await response.json();
+    console.log(json);
     if (response.ok) {
       setAuthToken(json.token);
+      setUserName(json.user.username); // auth context provider.
       setUsername(json.user.username);
     } else {
       alert(json.msg);
@@ -37,10 +43,9 @@ const AuthForm = (props) => {
     } else {
       if (props.location.pathname === "/signup") {
         setAction("Sign Up");
+      } else {
+        setAction("Sign In");
       }
-    }
-    {
-      setAction("Sign In");
     }
   }, [props]);
 
@@ -54,6 +59,7 @@ const AuthForm = (props) => {
     <TextField
       placeholder="Password"
       name="password"
+      type="password"
       value={password}
       onChange={(e) => setPassword(e.target.value)}
     />,
@@ -62,7 +68,8 @@ const AuthForm = (props) => {
     </Button>,
   ];
 
-  if (username) {
+  if (user_name) {
+    // redirect to the home page
   }
 
   return (
@@ -78,7 +85,7 @@ const AuthForm = (props) => {
         container
         direction="column"
         alignItems="stretch"
-        alignItems="center"
+        justify="center"
         component={Card}
         item
         spacing={3}
@@ -89,7 +96,6 @@ const AuthForm = (props) => {
         <Grid container item xs={12} justify="center">
           <Typography variant="h3">{action}</Typography>
         </Grid>
-
         {components.map((component) => {
           return (
             <Grid
@@ -103,14 +109,14 @@ const AuthForm = (props) => {
             </Grid>
           );
         })}
-        {action === "Sign Up" ? (
-          <Link to="/signup"> Don't have an account? Sign up!</Link>
+        {action === "Sign In" ? (
+          <Link to="/signup">Don't have an account? Sign Up</Link>
         ) : (
-          <Link to="/login">Already have an account? Sign in!</Link>
+          <Link to="/login">Already Have An Account? Sign In</Link>
         )}
       </Grid>
     </Grid>
   );
 };
 
-export default AuthForm;
+export default withRouter(AuthForm);
