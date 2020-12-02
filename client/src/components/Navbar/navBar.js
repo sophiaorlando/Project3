@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -16,7 +17,17 @@ export default function SearchAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography className="title" variant="h6" noWrap>
-            <a id="link">SNEAKER FREAKERS</a>
+            <Link
+              to="/"
+              id="link"
+              className={
+                window.location.pathname === "/" || window.location.pathname === "/home"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              SNEAKER FREAKERS
+            </Link>
           </Typography>
           <div className="search">
             <InputBase
@@ -31,10 +42,18 @@ export default function SearchAppBar() {
             className="menu-btn"
             color="inherit"
             aria-label="open drawer"
+            // onClick={openMenu()}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
+        {/* <aside className="side-bar">
+              <h3>Menu Items</h3>
+                <ul>
+                  <li>Log In</li>
+                  <li>Sign Out</li>
+                </ul>
+          </aside> */}
       </AppBar>
     </div>
   );

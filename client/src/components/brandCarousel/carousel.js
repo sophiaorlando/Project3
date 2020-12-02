@@ -1,10 +1,10 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+=======
 import React, { useEffect, useState } from 'react';
 import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';
+>>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
 import NavigateNextSharpIcon from '@material-ui/icons/NavigateNextSharp';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core';
 
 import './carousel.css'
 import { NavigateBeforeSharp } from '@material-ui/icons';
@@ -15,6 +15,12 @@ function CarouselApp(props) {
 
 
   let carArr = [
+<<<<<<< HEAD
+    1, 
+    2,
+    3, 
+    4, 
+=======
     <div className="slide-container">
     <Container>
       <Typography variant="h4" className="brand-title">
@@ -125,6 +131,7 @@ function CarouselApp(props) {
     ,
     3,
     4,
+>>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
     5
 
   ];
