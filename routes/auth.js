@@ -25,7 +25,7 @@ module.exports = router.post("/", async (req, res) => {
         {
           username: newUser.username,
         },
-        "",
+        "secret",
         (err, token) => {
           if (err) throw err;
           res.send({
@@ -45,7 +45,7 @@ module.exports = router.post("/", async (req, res) => {
     });
 });
 
-router.post("/logic", (req, res) => {
+router.post("/login", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username })
     .then((user) => {
@@ -59,9 +59,9 @@ router.post("/logic", (req, res) => {
       }
       jwt.sign(
         {
-          username: newUser.username,
+          username: user.username,
         },
-        "",
+        "secret",
         (err, token) => {
           if (err) throw err;
           res.send({

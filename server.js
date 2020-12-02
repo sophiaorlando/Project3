@@ -40,24 +40,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// app.post("/", (req, res) => {
-//   const { title, author, body } = req.body;
-
-//   let newNote = new Note({
-//     title,
-//     author,
-//     body,
-//   });
-
-//   newNote
-//     .save()
-//     .then((note) => {
-//       console.log("Note Saved");
-//       res.json(note);
-//     })
-//     .catch((err) => console.log("Error saving message"));
-// });
-
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
