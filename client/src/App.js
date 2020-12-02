@@ -6,6 +6,8 @@ import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import NoteApp from "./components/note_app/NoteApp";
+import NotePage from "./components/NotePage/Note";
 
 // const api = {
 //   url:
@@ -32,7 +34,7 @@ function App() {
       localStorage.removeItem("token");
       setAuthToken("");
     } else {
-      localStorage.setItem("token", JSON.stringify(authToken));
+      localStorage.setItem("token", JSON.stringify(data));
       setAuthToken(data);
     }
   };
@@ -48,9 +50,13 @@ function App() {
       <main>
         <BrowserRouter>
           <Switch>
+            <Route exact path="/" component={AuthForm} />
             <Route exact path="/login" component={AuthForm} />
             <Route exact path="/signup" component={AuthForm} />
             <PrivateRoute exact path="/home" component={Home} />
+            <PrivateRoute exact path="/note" component={NoteApp} />
+            <PrivateRoute exact path="/new" component={NoteApp} />
+            <PrivateRoute exact path="/user" component={NotePage} />
           </Switch>
         </BrowserRouter>
       </main>
