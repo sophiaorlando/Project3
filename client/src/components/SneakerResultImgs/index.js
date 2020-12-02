@@ -1,10 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
 
+import ShoeInfo from "../shoeInfoDisplay/index";
+
 function SneakerResImg(props) {
+
+  const shoeInfoPage = () => {
+    alert("this is a test")
+  }
+
   return (
     <div>
 
@@ -19,7 +27,10 @@ function SneakerResImg(props) {
 
               {props.sneakers.results.map(shoeData => (
                 <Grid item xs={12} sm={6} md={4}>
-                  <Card className="card">
+                  {/* <Link to={"/shoeInfo" + "/" + shoeData.name}> */}
+                  <Card className="card"
+                  onClick={shoeInfoPage}
+                  >
                     <CardActionArea>
                       <CardMedia
                         className="media"
@@ -30,15 +41,16 @@ function SneakerResImg(props) {
                       </CardContent>
                     </CardActionArea>
                   </Card>
+                  {/* </Link> */}
                 </Grid>
               ))}
 
             </Grid>
-
           </Container>
 
-        </div>
+          <ShoeInfo></ShoeInfo>
 
+        </div>
 
       ) : (
           ""

@@ -7,7 +7,6 @@ function CompJumbo() {
   return (
     <div>
       <Jumbotron>
-        {/* <h1 className="glow">Sneaker Freakers</h1> */}
         <SearchBar />
       </Jumbotron>
     </div>

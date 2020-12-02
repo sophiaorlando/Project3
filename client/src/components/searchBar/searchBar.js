@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-
-// import Jumbotron from '../jumbotron/jumbotron';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-// import CarouselApp from "../brandCarousel/carousel"
-
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
-import SneakerResults from "../SneakerResultImgs/index"
+import SneakerResults from "../SneakerResultImgs/index";
 
 import "./searchBar.css"
 
@@ -54,13 +46,10 @@ function SearchBar() {
           setBrand("");
           setSneakers(result);
           console.log(result);
+          console.log(result.results);
         });
     }
   };
-
-  // let sneakerData = sneakers.results.map(sneaker => {
-  //   const SneakerImg = sneaker.media.imageUrl
-  // })
 
   return (
 
@@ -87,7 +76,6 @@ function SearchBar() {
       sneakers={sneakers}
       />
     </div>
-
 
   )
 }
