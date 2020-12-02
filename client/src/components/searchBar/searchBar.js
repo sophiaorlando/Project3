@@ -1,14 +1,7 @@
-import React, { useState, Component } from "react";
-
+import React, { useState } from "react";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-// import CarouselApp from "../brandCarousel/carousel"
-
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
-import SneakerResults from "../SneakerResultImgs/index"
+import SneakerResults from "../SneakerResultImgs/index";
 
 import "./searchBar.css"
 
@@ -58,13 +51,6 @@ function SearchBar() {
     }
   };
 
-<<<<<<< HEAD
-=======
-  // let sneakerData = sneakers.results.map(sneaker => {
-  //   const SneakerImg = sneaker.media.imageUrl
-  // })
-
->>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
   return (
 
     <div>
@@ -86,74 +72,10 @@ function SearchBar() {
           />
         </div>
       </div>
-<<<<<<< HEAD
-    
-      {typeof sneakers.results != "undefined" ? (
-        
-        <div>
-          <Container className="product-container">
-            <Typography variant="h4" className="brand-title">
-              {sneakers.results[0].brand}
-            </Typography>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Card className="card">
-                  <CardActionArea>
-                    <a
-                    href="/shoeInfo.js"
-                    >
-                    <CardMedia
-                      className="media"
-                      image={sneakers.results[0].media.imageUrl}
-                    />
-                    </a>
-                    <CardContent>
-                      <h5>{sneakers.results[0].name}</h5>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Card className="card">
-                  <CardActionArea>
-                    <CardMedia
-                      className="media"
-                      image={sneakers.results[1].media.imageUrl}
-                    />
-                    <CardContent>
-                    <h5>{sneakers.results[1].name}</h5>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <Card className="card">
-                  <CardActionArea>
-                    <CardMedia
-                      className="media"
-                      image={sneakers.results[2].media.imageUrl}
-                    />
-                    <CardContent>
-                      <h5>{sneakers.results[2].name}</h5>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
-            </Grid>
-          </Container>
-        </div>
-
-
-        ) : (
-          ""
-        )}
-=======
       <SneakerResults
       sneakers={sneakers}
       />
->>>>>>> 8681d81c3c8c9462150dff1707bc168e48d16365
     </div>
-
 
   )
 }

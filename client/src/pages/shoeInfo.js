@@ -1,10 +1,11 @@
 import React from "react";
+import SneakerInfo from "../components/shoeInfoDisplay/index";
 
-export default function shoeInfo() {
+function ShoeInfo() {
+  
     return (
-        <div>
-            <h1>HI</h1>
-        </div>
+        <SneakerInfo></SneakerInfo>
     )
 }
 
+export default ShoeInfo;

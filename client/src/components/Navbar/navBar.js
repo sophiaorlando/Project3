@@ -42,10 +42,18 @@ export default function SearchAppBar() {
             className="menu-btn"
             color="inherit"
             aria-label="open drawer"
+            // onClick={openMenu()}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
+        {/* <aside className="side-bar">
+              <h3>Menu Items</h3>
+                <ul>
+                  <li>Log In</li>
+                  <li>Sign Out</li>
+                </ul>
+          </aside> */}
       </AppBar>
     </div>
   );
