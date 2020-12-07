@@ -12,7 +12,7 @@ const saveNote = (note, res) => {
     });
 };
 
-module.exports = router.get("/", (req, res) => {
+router.get("/", (req, res) => {
   Note.find({ author: req.username.username })
     .then((notes) => {
       res.json(notes);
@@ -51,3 +51,5 @@ router.delete("/:id", (req, res) => {
     .then(() => res.json("Note has been deleted!"))
     .catch(() => res.json({ msg: "Could not find note to delete." }));
 });
+
+module.exports = router;
