@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { MDBCard, MDBCardImage, MDBCardBody, MDBCarousel, MDBCarouselInner, 
     MDBCarouselItem, MDBContainer,MDBView, MDBCardTitle, MDBCardGroup, MDBCardText } from "mdbreact";
@@ -7,16 +7,16 @@ import "./justInShoes.css";
 
 function JustIn() {
 
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false);
     const [nikeMedia, setNikeMedia] = useState([]);
-    const [adidasMedia, setAdidasMedia] = useState([])
+    const [adidasMedia, setAdidasMedia] = useState([]);
 
     fetch(
         `https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=nike`
       )
         .then((res) => res.json())
         .then((result) => {
-            setIsLoading(true)
+            // setIsLoading(true)
             // console.log(result.results);
             setNikeMedia(result.results);
         });
@@ -34,29 +34,6 @@ function JustIn() {
     return (
     
         <div>
-
-            {/* <section className="text-center my-5">
-           
-                {/* <MDBRow>
-                    {nikes.map((nike) => (
-                    <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-                        <MDBCard className="align-shoe-center">
-                            <MDBCardImage
-                            src={nike.media.imageUrl}
-                            top
-                            //   alt="sample photo"
-                            overlay="white-slight"
-                            />
-                            <MDBCardBody className="text-center">
-                                <h4 className="font-weight-bold blue-text">
-                                    <strong>{nike.title}</strong>
-                                </h4>
-                            </MDBCardBody>
-                        </MDBCard>
-                    </MDBCol>
-                    ))}
-                </MDBRow> */}
-            {/* </section> */}
 
             <MDBContainer>
                 <h2 className="h1-responsive font-weight-bold text-left my-5">

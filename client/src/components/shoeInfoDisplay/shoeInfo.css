@@ -2,7 +2,7 @@
 
 .mt-5, .my-5 {
     padding: 2%;
-    padding-top: 10%;
+    padding-top: 5%;
     margin-top: 15rem !important;
 }
 
@@ -22,6 +22,10 @@
 .card:hover {
     text-decoration: none !important;
     text-emphasis: none !important;
+}
+
+.row {
+    padding: 0%;
 }
 
 .icon {
