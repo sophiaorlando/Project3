@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotesIcon from '@material-ui/icons/Notes';
+import Footer from "../Footer/footer";
 
 import "./shoeInfo.css";
+import { Component } from "react";
 
 function SneakerInfo(props) {
+  console.log(props);
 
   // const state = {
   //   image: "",
@@ -28,9 +31,6 @@ function SneakerInfo(props) {
     // styleId: "CU0816-102"
     // title: "Nike Air Force 1 Low White Deep Royal Blue (PS)"
     // year: 2020
-
-    console.log(props);
-    // console.log(props.match.params);
 
     return (
 
@@ -151,6 +151,7 @@ function SneakerInfo(props) {
         </MDBCardBody>
       </MDBCard>
 
+      <Footer></Footer>
       </div>
       
     )
