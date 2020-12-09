@@ -17,12 +17,14 @@ const auth = (req, res, next) => {
   }
 
   const token = req.header("x-auth-token");
+  console.log(req.headers["x-auth-token"]);
+  console.log("**************");
   if (!token) {
     res.status(401).json({ msg: "Invalid token. Access DENIED!" });
     return;
   }
   try {
-    const decoded = jwt.verify(JSON.parse(token), "");
+    const decoded = jwt.verify(JSON.parse(token), "secret");
     req.username = decoded;
     next();
   } catch (exception) {

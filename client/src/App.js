@@ -4,6 +4,7 @@ import PrivateRoute from "./components/route_types/PrivateRoute";
 import Home from "./pages/home";
 import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Wishlist from "./pages/wishlist";
 // import ShoeInfo from "../src/components/shoeInfo";
 // import Footer from "./components/Footer/footer";
 
@@ -25,7 +26,7 @@ function App() {
   const existingUsername = localStorage.getItem("username") || "";
   const [authToken, setAuthToken] = useState(existingToken);
   const [username, setUsername] = useState(existingUsername);
-  const setUserName = (data) => {
+  const setUserName = data => {
     if (!data) {
       localStorage.removeItem("username");
       setUsername("");
@@ -35,7 +36,7 @@ function App() {
     }
   };
 
-  const setToken = (data) => {
+  const setToken = data => {
     if (!data) {
       localStorage.removeItem("token");
       setAuthToken("");
@@ -50,7 +51,7 @@ function App() {
         authToken,
         setAuthToken: setToken,
         username,
-        setUserName: setUserName,
+        setUserName: setUserName
       }}
     >
       <main>
@@ -60,6 +61,7 @@ function App() {
             <Route exact path="/login" component={AuthForm} />
             <Route exact path="/signup" component={AuthForm} />
             <PrivateRoute exact path="/home" component={Home} />
+            <PrivateRoute exact path="/wishlist" component={Wishlist} />
             <PrivateRoute exact path="/note" component={NoteApp} />
             <PrivateRoute exact path="/new" component={NoteApp} />
             <PrivateRoute exact path="/user" component={NotePage} />

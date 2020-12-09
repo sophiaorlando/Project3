@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const note = require("./models/note");
 const auth = require("./middleware/auth");
+const wishlist = require("./routes/wishlist");
 const app = express();
 
 // Define middleware here
@@ -21,17 +22,19 @@ mongoose
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-    useCreateIndex: true,
+    useCreateIndex: true
   })
   .then(() => {
     console.log("Connected to DB");
   })
-  .catch((err) => consele.log("Error connecting to DB"));
+  .catch(err => consele.log("Error connecting to DB"));
 
 app.all("/api/*", auth);
 
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/wishlist", require("./routes/wishlist"));
+
 // Define API routes here
 
 // Send every other request to the React app

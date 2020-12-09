@@ -3,8 +3,9 @@ import { Grid, Card, Typography, Button, TextField } from "@material-ui/core";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import { useAuth } from "./auth";
 
-const AuthForm = (props) => {
+const AuthForm = props => {
   const [userName, setUsername] = useState("");
+  const [userUserId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [action, setAction] = useState("Sign In");
   const { setUserName, setAuthToken, username } = useAuth();
@@ -23,7 +24,7 @@ const AuthForm = (props) => {
     const response = await fetch(url, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ username: userName, password }),
+      body: JSON.stringify({ username: userName, password })
     });
 
     const json = await response.json();
@@ -32,6 +33,7 @@ const AuthForm = (props) => {
       setAuthToken(json.token);
       setUserName(json.user.username); // auth context provider.
       setUsername(json.user.username);
+      setUserId(json.user.id);
     } else {
       alert(json.msg);
     }
@@ -54,18 +56,18 @@ const AuthForm = (props) => {
       placeholder="Username"
       name="username"
       value={userName}
-      onChange={(e) => setUsername(e.target.value)}
+      onChange={e => setUsername(e.target.value)}
     />,
     <TextField
       placeholder="Password"
       name="password"
       type="password"
       value={password}
-      onChange={(e) => setPassword(e.target.value)}
+      onChange={e => setPassword(e.target.value)}
     />,
     <Button variant="contained" color="primary" onClick={() => authenticate()}>
       {action}
-    </Button>,
+    </Button>
   ];
 
   if (username) {
@@ -97,7 +99,7 @@ const AuthForm = (props) => {
         <Grid container item xs={12} justify="center">
           <Typography variant="h3">{action}</Typography>
         </Grid>
-        {components.map((component) => {
+        {components.map(component => {
           return (
             <Grid
               container

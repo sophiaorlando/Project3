@@ -8,7 +8,7 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
   const redirect = (path, state) => {
     history.push({
       pathname: path,
-      state: state,
+      state: state
     });
   };
 
@@ -20,10 +20,10 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
       const { _id } = note;
       const response = await fetch("api/notes/" + _id, {
         method: "DELETE",
-        header: {
+        headers: {
           "content-type": "application/json",
-          "x-auth-token": localStorage.getItem("token"),
-        },
+          "x-auth-token": localStorage.getItem("token")
+        }
       });
       const jsonResponse = await response.json();
       if (jsonResponse.msg === "success") {
@@ -37,12 +37,12 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
       hover
       name={note._id}
       key={note._id}
-      onClick={(e) => handleClick(e, "view")}
+      onClick={e => handleClick(e, "view")}
     >
       <TableCell align="left">{itemNumber}</TableCell>
       <TableCell>{note.title}</TableCell>
       <TableCell>{note.updatedAt}</TableCell>
-      <TableCell onClick={(e) => handleClick(e, "delete")}>
+      <TableCell onClick={e => handleClick(e, "delete")}>
         <Delete />
       </TableCell>
     </TableRow>

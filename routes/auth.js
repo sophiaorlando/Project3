@@ -15,15 +15,17 @@ module.exports = router.post("/", async (req, res) => {
   let newUser = new User({
     username,
     passwordHash: bcrypt.hashSync(password, 10),
-    numNotes: 0,
+    numNotes: 0
   });
 
   newUser
     .save()
-    .then((user) => {
+    .then(user => {
+      console.log(user);
       jwt.sign(
         {
           username: newUser.username,
+          id: user._id
         },
         "secret",
         (err, token) => {
@@ -32,15 +34,16 @@ module.exports = router.post("/", async (req, res) => {
             token,
             user: {
               username: user.username,
-            },
+              id: user._id
+            }
           });
         }
       );
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(500).json({
-        msg: `User ${err.keyValue["username"]} already exists. Try loggin in.`,
+        msg: `User ${err.keyValue["username"]} already exists. Try loggin in.`
       });
     });
 });
@@ -48,7 +51,7 @@ module.exports = router.post("/", async (req, res) => {
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username })
-    .then((user) => {
+    .then(user => {
       if (!user) {
         res
           .status(500)
@@ -60,6 +63,7 @@ router.post("/login", (req, res) => {
       jwt.sign(
         {
           username: user.username,
+          id: user._id
         },
         "secret",
         (err, token) => {
@@ -68,12 +72,13 @@ router.post("/login", (req, res) => {
             token,
             user: {
               username: user.username,
-            },
+              id: user._id
+            }
           });
         }
       );
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       res.status(500).send(err);
     });

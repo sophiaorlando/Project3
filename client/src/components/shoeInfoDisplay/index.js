@@ -1,29 +1,52 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import {
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBCard,
+  MDBCardBody,
+  MDBMask,
+  MDBView
+} from "mdbreact";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 // import NoteAddIcon from '@material-ui/icons/NoteAdd';
-import NotesIcon from '@material-ui/icons/Notes';
+import NotesIcon from "@material-ui/icons/Notes";
+import axios from "axios";
+import { useAuth } from "../auth/auth";
 
 // import SneakerImgResults from "../SneakerResultImgs/index";
 
 import "./shoeInfo.css";
 
 function SneakerInfo(props) {
-    // colorway: "White/Deep Royal Blue-White"
-    // gender: "preschool"
-    // id: "790bbb3e-877a-452e-9f58-45b2624cb3ca"
-    // media: {imageUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985", smallImageUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985", thumbUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985"}
-    // name: "White Deep Royal Blue (PS)"
-    // releaseDate: "2020-12-15"
-    // retailPrice: 58
-    // shoe: "Nike Air Force 1 Low"
-    // styleId: "CU0816-102"
-    // title: "Nike Air Force 1 Low White Deep Royal Blue (PS)"
-    // year: 2020
-
-    return (
-
+  const AuthInfo = useAuth();
+  // colorway: "White/Deep Royal Blue-White"
+  // gender: "preschool"
+  // id: "790bbb3e-877a-452e-9f58-45b2624cb3ca"
+  // media: {imageUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985", smallImageUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985", thumbUrl: "https://stockx.imgix.net/Nike-Air-Force-1-Low-Whit…press&trim=color&q=90&dpr=2&updated_at=1603481985"}
+  // name: "White Deep Royal Blue (PS)"
+  // releaseDate: "2020-12-15"
+  // retailPrice: 58
+  // shoe: "Nike Air Force 1 Low"
+  // styleId: "CU0816-102"
+  // title: "Nike Air Force 1 Low White Deep Royal Blue (PS)"
+  // year: 2020
+  const handleWishlistUpdate = () => {
+    console.log("------");
+    console.log(AuthInfo.authToken);
+    axios
+      .post("/api/wishlist/wishlist", {
+        headers: {
+          "content-type": "application/json",
+          "x-auth-token": `${AuthInfo.authToken}`
+        }
+      })
+      .then(response => {
+        console.log(response);
+      });
+  };
+  return (
     <div>
       <MDBCard
         className="my-5 px-5 mx-auto"
@@ -46,44 +69,44 @@ function SneakerInfo(props) {
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="deep-orange-text">
                     <h6 className="font-weight-bold">
-                        Nike Air Force 1 Low White Deep Royal Blue (PS)
+                      Nike Air Force 1 Low White Deep Royal Blue (PS)
                     </h6>
                   </a>
-                  <p className="font-weight-bold dark-grey-text">
-                    $170
-                  </p>
+                  <p className="font-weight-bold dark-grey-text">$170</p>
                 </div>
               </div>
             </MDBCol>
 
             <MDBCol md="12" lg="6">
-              <div style={{
-                borderBottom: "1px solid #e0e0e0",
-                marginBottom: "1.5rem"
-              }}>
-               <MDBRow>
+              <div
+                style={{
+                  borderBottom: "1px solid #e0e0e0",
+                  marginBottom: "1.5rem"
+                }}
+              >
+                <MDBRow>
                   <MDBCol md="9">
                     <h2 className="font-weight-bold dark-grey-text">
-                        Nike Air Force 1 Low (PS)
+                      Nike Air Force 1 Low (PS)
                     </h2>
                     <div className="d-flex justify-content-between"></div>
                   </MDBCol>
                 </MDBRow>
               </div>
 
-              <div style={{
-                borderBottom: "1px solid #e0e0e0",
-                marginBottom: "1.5rem"
-              }}>
+              <div
+                style={{
+                  borderBottom: "1px solid #e0e0e0",
+                  marginBottom: "1.5rem"
+                }}
+              >
                 <MDBRow>
                   <MDBCol md="9">
-                    <p className="font-weight-bold dark-grey-text">
-                      Color:
-                    </p>
+                    <p className="font-weight-bold dark-grey-text">Color:</p>
                     <div className="d-flex justify-content-between">
                       <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
-                            White/Deep Royal Blue-White
+                          White/Deep Royal Blue-White
                         </a>
                       </MDBCol>
                       <a href="#!">
@@ -94,15 +117,15 @@ function SneakerInfo(props) {
                 </MDBRow>
               </div>
 
-              <div style={{
-                    borderBottom: "1px solid #e0e0e0",
-                    marginBottom: "1.5rem"
-                  }}>
+              <div
+                style={{
+                  borderBottom: "1px solid #e0e0e0",
+                  marginBottom: "1.5rem"
+                }}
+              >
                 <MDBRow>
                   <MDBCol md="9">
-                    <p className="font-weight-bold dark-grey-text">
-                      Gender:
-                    </p>
+                    <p className="font-weight-bold dark-grey-text">Gender:</p>
                     <div className="d-flex justify-content-between">
                       <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
@@ -137,15 +160,25 @@ function SneakerInfo(props) {
                 </MDBRow>
               </div>
 
-              <FavoriteIcon className="icon"></FavoriteIcon>
+              <FavoriteIcon
+                className="icon"
+                onClick={() => handleWishlistUpdate()}
+              ></FavoriteIcon>
               <NotesIcon className="icon"></NotesIcon>
-              
             </MDBCol>
           </MDBRow>
         </MDBCardBody>
       </MDBCard>
-      </div>
-    )
+    </div>
+  );
 }
 
 export default SneakerInfo;
+
+// 1. sign in get user id
+// 2. pick a shoe
+// 3. check if shoe is favorited
+// 4. favorite the shoe
+// 5. send favorite to backend
+// 6. update user account in db
+// 7. post user wishlist
