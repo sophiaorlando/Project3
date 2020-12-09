@@ -11,8 +11,8 @@ const NoteSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
+  createdAt: { type: Date, default: new Date() },
+  updatedAt: { type: Date, default: new Date() },
 });
 
 module.exports = Note = mongoose.model("Note", NoteSchema);

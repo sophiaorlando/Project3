@@ -6,7 +6,6 @@ import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import ShoeInfo from "../src/components/shoeInfo";
 // import Footer from "./components/Footer/footer";
-
 import "./App.css";
 import NoteApp from "./components/note_app/NoteApp";
 import NotePage from "./components/NotePage/Note";

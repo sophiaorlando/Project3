@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
-module.exports = router.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { username, password } = req.body;
   if (password.length < 7) {
     res.status(500).json({ msg: "Password must be longer than 7 characters" });
@@ -78,3 +78,5 @@ router.post("/login", (req, res) => {
       res.status(500).send(err);
     });
 });
+
+module.exports = router;

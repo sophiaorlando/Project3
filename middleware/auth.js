@@ -22,7 +22,7 @@ const auth = (req, res, next) => {
     return;
   }
   try {
-    const decoded = jwt.verify(JSON.parse(token), "");
+    const decoded = jwt.verify(JSON.parse(token), "secret");
     req.username = decoded;
     next();
   } catch (exception) {
