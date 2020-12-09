@@ -12,9 +12,9 @@ const NoteContainer = (props) => {
       direction="column"
       xs={12}
       md={5}
-      style={{ maxHeight: "100%", padding: "10px" }}
+      style={{ maxHeight: "100%", padding: "10px", zIndex: "-10" }}
     >
-      <Grid item xs={12} style={{ padding: "10px" }}>
+      <Grid item xs={12} style={{ padding: "10px", zIndex: "-10"  }}>
         <NotePad {...props} handleSave={(note) => props.handleSave(note)} />
       </Grid>
     </Grid>

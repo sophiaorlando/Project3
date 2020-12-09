@@ -4,21 +4,15 @@ import PrivateRoute from "./components/route_types/PrivateRoute";
 import Home from "./pages/home";
 import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import ShoeInfo from "../src/components/shoeInfo";
+import Navbar from "./components/Navbar/navBar";
+import NoteApp from "./components/note_app/NoteApp";
+import NotePage from "./components/NotePage/Note";
+import ShoePage from "./components/shoeInfoDisplay/shoeInfo";
+import WishListPage from "./pages/wishlist";
+import AllShoes from "./components/allShoes/allShoes";
 // import Footer from "./components/Footer/footer";
 
 import "./App.css";
-import NoteApp from "./components/note_app/NoteApp";
-import NotePage from "./components/NotePage/Note";
-
-// const api = {
-//   url:
-//     "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=jordan&releaseDate=lte:2019-10-11&name=travis%20scott",
-// };
-
-// const api = {
-//   url: "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=nike",
-// };
 
 function App() {
   const existingToken = localStorage.getItem("token") || "";
@@ -55,6 +49,7 @@ function App() {
     >
       <main>
         <BrowserRouter>
+        <Navbar></Navbar>
           <Switch>
             <Route exact path="/" component={AuthForm} />
             <Route exact path="/login" component={AuthForm} />
@@ -63,14 +58,12 @@ function App() {
             <PrivateRoute exact path="/note" component={NoteApp} />
             <PrivateRoute exact path="/new" component={NoteApp} />
             <PrivateRoute exact path="/user" component={NotePage} />
+            <PrivateRoute exact path="/wishlist" component={WishListPage} />
+            <PrivateRoute exact path="/shoe:id" component={ShoePage} />
+            <PrivateRoute exact path="/allShoes:search" component={AllShoes} />
           </Switch>
+          {/* <Footer></Footer> */}
         </BrowserRouter>
-        {/* <Navbar></Navbar>
-        <Wrapper>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/" component={ShoeInfo} />
-        </Wrapper>
-        <Footer></Footer> */}
       </main>
     </AuthContext.Provider>
   );

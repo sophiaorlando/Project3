@@ -1,12 +1,12 @@
-.mb-5, .my-5 {
-    margin-bottom: 3rem !important;
-}
+.mb-5, .my-5 {margin-bottom: 3rem !important;}
 
 .mt-5, .my-5 {
     padding: 2%;
     padding-top: 10%;
     margin-top: 15rem !important;
 }
+
+#shoe-info-container {margin-top: 10% !important;}
 
 .card {
     position: relative;
@@ -16,12 +16,32 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    /* border: 1px solid rgba(0, 0, 0, 0.125); */
-    /* border-radius: 0.25rem; */
     border: none !important;
 }
 
+.card:hover {
+    text-decoration: none !important;
+    text-emphasis: none !important;
+}
 
 .icon {
     margin-right: 1.5%;
 }
+
+.col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: left;
+}
+
+.col-md-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

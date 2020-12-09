@@ -47,7 +47,7 @@ const NotePage = (props) => {
           <EditIcon />
         </Fab>
       </Grid>
-    </Grid>
+    </Grid>    
   );
 };
 
