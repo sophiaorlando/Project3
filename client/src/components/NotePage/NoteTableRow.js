@@ -20,11 +20,12 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
       const { _id } = note;
       const response = await fetch("api/notes/" + _id, {
         method: "DELETE",
-        header: {
+        headers: {
           "content-type": "application/json",
           "x-auth-token": localStorage.getItem("token"),
         },
       });
+      console.log(response);
       const jsonResponse = await response.json();
       if (jsonResponse.msg === "success") {
         window.location.reload();

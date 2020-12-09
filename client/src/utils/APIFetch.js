@@ -24,6 +24,7 @@ const useFetch = (url, body, TYPE) => {
     setData(data);
     setLoading(false);
     console.log(response);
+    console.log(data);
   };
 
   useEffect(() => {
