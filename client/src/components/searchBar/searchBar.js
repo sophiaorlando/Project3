@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
+import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router-dom'; 
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import SneakerResults from "../SneakerResultImgs/index";
 
 import "./searchBar.css"
 
 function SearchBar() {
 
-  const [error, setError] = useState(null);
+//   class Search extends Component {
+//     constructor(props) {
+//       super(props);
+//       this.state = {
+//       results: [],
+//       term: '',
+//     };
+
+//     this.submit = this.submit.bind(this);
+//     this.changeTerm = this.changeTerm.bind(this);
+
+//   }
+// }
+    
+  // const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
-  // props.sneakers.results[0].media.imageUrl
   const [sneakers, setSneakers] = useState({});
-
-  // const [sneakers, setSneakers] = useState({ results: [{ media: { imgUrl: "https://via.placeholder.com/150" } }] });
 
   const brandsList = [
     { brandName: "Adidas" },
@@ -39,14 +50,13 @@ function SearchBar() {
       fetch(
         `https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=${brand}`
       )
-        //&releaseDate=lte:2019-10-11&name=travis%20scott
         .then((res) => res.json())
         .then((result) => {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
-          console.log(result);
-          console.log(result.results);
+          // console.log(result);
+          console.log(result.results); 
         });
     }
   };
@@ -55,7 +65,7 @@ function SearchBar() {
 
     <div>
       <div className="brand-search">
-        <div className="search-box col" style={{ width: 300 }}>
+        <div className="search-box col">
           <Autocomplete
             {...defaultBrands}
             id="auto-complete"
@@ -63,7 +73,8 @@ function SearchBar() {
             includeInputInList
             renderInput={(params) =>
               <TextField {...params}
-                label="Search brand..."
+                // label="Search brand..."
+                placeholder="Search brand..."
                 margin="normal"
                 onChange={(e) => setBrand(e.target.value)}
                 value={brand}
@@ -72,9 +83,9 @@ function SearchBar() {
           />
         </div>
       </div>
-      <SneakerResults
+      {/* <SneakerResults
       sneakers={sneakers}
-      />
+      /> */}
     </div>
 
   )

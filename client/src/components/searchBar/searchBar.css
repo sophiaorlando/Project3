@@ -2,24 +2,69 @@
 /* search bar */
 /**********************************************/
 .brand-search {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translateY(-50%);
-  transform: translateX(-35%);
+  width: 100%;
+  display: inline-flex;
+  /* padding: 30%; */
+  padding-top: 0;
+  padding-bottom: 0%;
+  /* margin-top: 60%; */
+  margin-bottom: 11%;
+  color: white;
 }
 
 .search-bar{
   background-color: transparent;
-  border-color: black;
-  border-style:solid;
+  border-color: white !important;
+  border-style: solid;
   border-top:0px;
   border-right:0px;
   border-left:0px;
-  margin-top: 15%;
 }
 ::placeholder{
-  color:black;
+  color:black !important;
+}
+
+.search-box {
+  padding: 0;
+  /* margin-top: 40%; */
+  align-self: center;
+  /* width: 300px; */
+}
+
+.MuiInputBase-input {
+  font: inherit;
+  color: currentColor;
+  /* color: black; */
+  width: 100%;
+  border: 0;
+  height: 1.1876em;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  /* min-width: 0; */
+  background: none;
+  box-sizing: content-box;
+  animation-name: mui-auto-fill-cancel;
+  letter-spacing: inherit;
+  animation-duration: 10ms;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.MuiSvgIcon-root {
+  fill: currentColor;
+  fill: white;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+  width: 0;
+  min-width: 100px !important;
 }
 
 /**********************************************/
@@ -28,7 +73,8 @@
 .product-container {
   text-align: center;
   width: 100%;
-  margin-top: 28%;
+  /* margin-top: 15%; */
+  position: relative !important;
 }
 
 .brand-title {

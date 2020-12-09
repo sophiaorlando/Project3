@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Grid, TextField, Card } from "@material-ui/core";
 import YouTube from "react-youtube";
 
+import "../note_app/NoteApp.css";
+
 const VideoContainer = (props) => {
   const [videoLink, setVideoLink] = useState("");
   const [videoTimestamp, setVideoTimestamp] = useState(0);
@@ -54,13 +56,14 @@ const VideoContainer = (props) => {
         direction="column"
         justify="space-between"
         alignItems="stretch"
-        style={{ padding: "10px", height: "100%" }}
+        style={{ padding: "10px", height: "100%"}}
       >
         <Grid item xs={12}>
           <TextField
             style={{ width: "100%" }}
             value={videoLink}
             name="videoLink"
+            color="black"
             placeholder="Enter a YouTube URL"
             variant="outlined"
             onChange={(e) => onChange(e)}

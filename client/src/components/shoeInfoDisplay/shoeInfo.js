@@ -1,15 +1,22 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import FavoriteIcon from '@material-ui/icons/Favorite';
-// import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import NotesIcon from '@material-ui/icons/Notes';
-
-// import SneakerImgResults from "../SneakerResultImgs/index";
 
 import "./shoeInfo.css";
 
 function SneakerInfo(props) {
+
+  // const state = {
+  //   image: "",
+  //   shoe: "", 
+  //   price: 0,
+  //   color: "",
+  //   gender: "",
+  //   releaseDate: ""
+  // };
+  
     // colorway: "White/Deep Royal Blue-White"
     // gender: "preschool"
     // id: "790bbb3e-877a-452e-9f58-45b2624cb3ca"
@@ -22,11 +29,16 @@ function SneakerInfo(props) {
     // title: "Nike Air Force 1 Low White Deep Royal Blue (PS)"
     // year: 2020
 
+    console.log(props);
+    // console.log(props.match.params);
+
     return (
 
     <div>
+
       <MDBCard
         className="my-5 px-5 mx-auto"
+        id="shoe-info-container"
         style={{ fontWeight: 300, maxWidth: "90%" }}
       >
         <MDBCardBody style={{ paddingTop: 0 }}>
@@ -39,16 +51,12 @@ function SneakerInfo(props) {
                     src="https://static.nike.com/a/images/f_auto/q_auto:eco/t_PDP_864_v1/eric5lwitzffpoisq0rj/blazer-mid-77-vintage-mens-shoe-flCCX4.jpg"
                     alt=""
                   />
-                  <a href="#!">
                     <MDBMask overlay="white-slight" className="waves-light" />
-                  </a>
                 </MDBView>
                 <div className="d-flex justify-content-between">
-                  <a href="#!" className="deep-orange-text">
                     <h6 className="font-weight-bold">
-                        Nike Air Force 1 Low White Deep Royal Blue (PS)
+                        {props.match.params.id}
                     </h6>
-                  </a>
                   <p className="font-weight-bold dark-grey-text">
                     $170
                   </p>
@@ -82,13 +90,9 @@ function SneakerInfo(props) {
                     </p>
                     <div className="d-flex justify-content-between">
                       <MDBCol size="11" className="text-truncate pl-0 mb-3">
-                        <a href="#!" className="dark-grey-text">
                             White/Deep Royal Blue-White
-                        </a>
                       </MDBCol>
-                      <a href="#!">
-                        <MDBIcon icon="angle-double-right" />
-                      </a>
+                        <MDBIcon  icon="angle-double-right" />
                     </div>
                   </MDBCol>
                 </MDBRow>
@@ -105,13 +109,9 @@ function SneakerInfo(props) {
                     </p>
                     <div className="d-flex justify-content-between">
                       <MDBCol size="11" className="text-truncate pl-0 mb-3">
-                        <a href="#!" className="dark-grey-text">
                           Preschool
-                        </a>
                       </MDBCol>
-                      <a href="#!">
                         <MDBIcon icon="angle-double-right" />
-                      </a>
                     </div>
                   </MDBCol>
                 </MDBRow>
@@ -125,26 +125,34 @@ function SneakerInfo(props) {
                     </p>
                     <div className="d-flex justify-content-between">
                       <MDBCol size="11" className="text-truncate pl-0 mb-3">
-                        <a href="#!" className="dark-grey-text">
                           2020-12-15
-                        </a>
                       </MDBCol>
-                      <a href="#!">
                         <MDBIcon icon="angle-double-right" />
-                      </a>
                     </div>
                   </MDBCol>
                 </MDBRow>
               </div>
 
-              <FavoriteIcon className="icon"></FavoriteIcon>
-              <NotesIcon className="icon"></NotesIcon>
+              <Link
+              to="/wishlist"
+              >
+                <FavoriteIcon className="icon"></FavoriteIcon>
+              </Link>
+
+              <Link
+              key={props.history}
+              to="/note"
+              >
+                <NotesIcon className="icon"></NotesIcon>
+              </Link>
               
             </MDBCol>
           </MDBRow>
         </MDBCardBody>
       </MDBCard>
+
       </div>
+      
     )
 }
 

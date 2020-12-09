@@ -1,22 +1,53 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import clsx from 'clsx';
+import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import NotesIcon from '@material-ui/icons/Notes';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import CloseIcon from '@material-ui/icons/Close';
+import { useAuth } from '../auth/auth'
+import SearchBar from  "../searchBar/searchBar";
 
 import "./navBar.css";
 
-export default function SearchAppBar() {
+export default function PersistentDrawerRight() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const { setUserName, setAuthToken } = useAuth();
+
+  const logout = () => {
+    setUserName();
+    setAuthToken();
+  }
 
   return (
     <div className="root">
-      <AppBar position="static">
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+      >
         <Toolbar>
-          <Typography className="title" variant="h6" noWrap>
+        <Typography className="title" variant="h6" noWrap>
             <Link
               to="/"
               id="link"
@@ -29,32 +60,90 @@ export default function SearchAppBar() {
               SNEAKER FREAKERS
             </Link>
           </Typography>
-          <div className="search">
-            <InputBase
-              placeholder="Search…"
-              className="input"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <AccountCircle className="account-circle"></AccountCircle>
+
+          <SearchBar></SearchBar>
+
           <IconButton
-            edge="start"
-            className="menu-btn"
             color="inherit"
             aria-label="open drawer"
-            // onClick={openMenu()}
+            edge="end"
+            onClick={handleDrawerOpen}
+            className={clsx(open && "hide")}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
-        {/* <aside className="side-bar">
-              <h3>Menu Items</h3>
-                <ul>
-                  <li>Log In</li>
-                  <li>Sign Out</li>
-                </ul>
-          </aside> */}
       </AppBar>
+      <main>
+        <div className={"drawerHeader"} />
+      </main>
+      <Drawer
+        className={"drawer"}
+        variant="persistent"
+        anchor="right"
+        open={open}
+        classes={{
+          paper: "drawerPaper",
+        }}
+      >
+        <div className={"drawerHeader"}>
+          <IconButton onClick={handleDrawerClose}>
+            <CloseIcon />
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          {['Wishlist'].map((text) => (
+            <Link
+              to="/wishlist"
+              >
+            <ListItem button key={text}>
+              <ListItemIcon>
+                  <FavoriteIcon></FavoriteIcon>
+              </ListItemIcon>
+              <ListItemText primary={text}
+              style={{ color: "black", textEmphasis: "none" }} 
+              />
+            </ListItem>
+            </Link>    
+          ))}
+
+          <List>
+          {['Notes'].map((text) => (
+            <Link
+            key={useAuth}
+              to="/user"
+              >
+            <ListItem button key={text}>
+              <ListItemIcon>
+                  <NotesIcon></NotesIcon>
+              </ListItemIcon>
+              <ListItemText primary={text}
+              style={{ color: "black", textEmphasis: "none" }} 
+              />
+            </ListItem>
+            </Link>
+          ))}
+        </List>
+        </List>
+        <Divider />
+        <List onClick={() => logout()}>
+          {['Log Out'].map((text) => (
+            <Link
+              to="/note"
+              >
+            <ListItem button key={text}>
+              <ListItemIcon>
+                  <ExitToAppIcon></ExitToAppIcon>
+              </ListItemIcon>
+              <ListItemText primary={text}
+              style={{ color: "black", textEmphasis: "none" }} 
+              />
+            </ListItem>
+            </Link>
+          ))}
+        </List>
+      </Drawer>
     </div>
   );
 }
