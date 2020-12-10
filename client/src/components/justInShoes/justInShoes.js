@@ -207,7 +207,7 @@ function JustIn() {
                 activeItem={1}
                 length={3}
                 showControls={true}
-                showIndicators={false}
+                showIndicators={true}
                 className="z-depth-1"
                 slide
                 >
@@ -217,6 +217,7 @@ function JustIn() {
                         <MDBView>            
                             <MDBCardGroup>
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[0]?.title || ""}>
                                     <MDBCardImage 
                                     src= {adidasMedia[0]?.media.imageUrl || ""}
                                     alt="MDBCard image cap" 
@@ -226,9 +227,11 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[0]?.name || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[1]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[1]?.media.imageUrl || ""}
                                     alt="MDBCard image cap" 
@@ -238,9 +241,11 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[1]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[2]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[2]?.media.imageUrl || ""}
                                     alt="MDBCard image cap" 
@@ -250,6 +255,7 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[2]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText> 
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
                             </MDBCardGroup>
                         </MDBView>
@@ -259,6 +265,7 @@ function JustIn() {
                         <MDBView>
                             <MDBCardGroup>
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[3]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[3]?.media.imageUrl || ""}
                                     alt="MDBCard image cap" 
@@ -268,9 +275,11 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[3]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[4]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[4]?.media.imageUrl || ""} 
                                     alt="MDBCard image cap" 
@@ -280,9 +289,11 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[4]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[5]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[5]?.media.imageUrl || ""}  
                                     alt="MDBCard image cap" 
@@ -292,6 +303,7 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[5]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>                
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
                             </MDBCardGroup>
                         </MDBView>
@@ -301,6 +313,8 @@ function JustIn() {
                         <MDBView>
                             <MDBCardGroup>
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[6]?.title || ""}>
+
                                     <MDBCardImage 
                                     src={adidasMedia[6]?.media.imageUrl || ""} 
                                     alt="MDBCard image cap" 
@@ -310,9 +324,11 @@ function JustIn() {
                                     <MDBCardTitle tag="h5">{adidasMedia[6]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                         </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[7]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[7]?.media.imageUrl || ""} 
                                     alt="MDBCard image cap" 
@@ -322,9 +338,11 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[7]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to={"/shoe" + adidasMedia[8]?.title || ""}>
                                     <MDBCardImage 
                                     src={adidasMedia[8]?.media.imageUrl || ""}  
                                     alt="MDBCard image cap" 
@@ -334,6 +352,7 @@ function JustIn() {
                                         <MDBCardTitle tag="h5">{adidasMedia[8]?.title || ""}</MDBCardTitle>
                                         <MDBCardText></MDBCardText>
                                     </MDBCardBody>
+                                </Link>
                                 </MDBCard>
                             </MDBCardGroup>
                         </MDBView>

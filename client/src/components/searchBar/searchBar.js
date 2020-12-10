@@ -7,7 +7,6 @@ import "./searchBar.css"
 
 function SearchBar() {
 
-  // const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
@@ -30,18 +29,7 @@ function SearchBar() {
     options: brandsList,
     getOptionLabel: (option) => option.brandName,
   };
-  
-  // class Search extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //     results: [],
-  //     term: '',
-  //   };
-  //   this.submit = this.submit.bind(this);
-  //   this.changeTerm = this.changeTerm.bind(this);
-  //   }
-  // }
+
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -53,7 +41,7 @@ function SearchBar() {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
-          console.log(result.results);
+          // console.log(result.results);
           setRedirect(true)
         });
     }
@@ -71,7 +59,6 @@ function SearchBar() {
                 includeInputInList
                 renderInput={(params) =>
                   <TextField {...params}
-                    // label="Search brand..."
                     placeholder="Search brand..."
                     margin="normal"
                     onChange={(e) => setBrand(e.target.value)}

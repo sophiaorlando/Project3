@@ -1,73 +1,17 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import Typography from '@material-ui/core/Typography';
-// import Container from '@material-ui/core/Container';
-// import Grid from '@material-ui/core/Grid';
-// import { CardActionArea, Card, CardMedia, CardContent } from '@material-ui/core';
-
-// function SneakerResImg(props) {
-
-//   return (
-//     <div>
-
-//       {typeof props.sneakers.results != "undefined" ? (
-
-//         <div>
-//           <Container className="product-container">
-//             <Typography variant="h4" className="brand-title">
-//               {props.sneakers.results[0].brand}
-//             </Typography>
-//             <Grid container spacing={3}>
-
-//               {props.sneakers.results.map(shoeData => (
-//                 <Grid key={shoeData.id} id={shoeData.id}  item xs={12} sm={6} md={4}>
-//                   <Link to={"/shoe" + shoeData.id}>
-//                   <Card className="card"
-//                   >
-//                     <CardActionArea>
-//                       <CardMedia
-//                         key={shoeData.media.imageUrl}
-//                         className="media"
-//                         image={shoeData.media.imageUrl}
-//                       />
-//                       <CardContent>
-//                         <h5>{shoeData.name}</h5>
-//                       </CardContent>
-//                     </CardActionArea>
-//                   </Card>
-//                   </Link>
-//                 </Grid>
-//               ))}
-
-//             </Grid>
-//           </Container>
-
-//         </div>
-
-//       ) : (
-//           ""
-//         )}
-//     </div>
-
-//   )
-// }
-
-// export default SneakerResImg;
-
-
-import '../searchBar/searchBar';
+import './API'
 import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
 import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 
+
 function Example(props) {
-    // console.log(props.sneakers.results)
-    // var name = "Shoe Brand"
-    // if (props.sneakers.results) {
-    //     name = props.sneakers.results[0].brand
-    // }
+    console.log(props.sneakers.results)
+    var name = "Shoe Brand"
+    if (props.sneakers.results) {
+        name = props.sneakers.results[0].brand
+    }
     var rows = [
         //first row
         {
@@ -107,7 +51,7 @@ function Example(props) {
                 "random img",
                 "random img"
             ]
-        },
+        }
     ];
     if (props.sneakers.results) {
         const filteredResults = props.sneakers.results.filter(sneaker =>
@@ -159,9 +103,9 @@ function CarouselRows(props) {
                         <img src={props.row.image[2]} style={{ width: "150px", height: "100px" }}></img>
                     </Paper>
                 </Grid>
-                {/* <Button className="CheckButton">
+                <Button className="CheckButton">
                     Check it out!
-            </Button> */}
+            </Button>
                 {/* </Paper> */}
             </Grid>
         </div>

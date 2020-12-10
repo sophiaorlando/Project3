@@ -49,7 +49,7 @@ export default function PersistentDrawerRight() {
         <Toolbar>
         <Typography className="title" variant="h6" noWrap>
             <Link
-              to="/"
+              to="/home"
               id="link"
               className={
                 window.location.pathname === "/" || window.location.pathname === "/home"
@@ -111,7 +111,6 @@ export default function PersistentDrawerRight() {
           <List>
           {['Notes'].map((text) => (
             <Link
-            key={useAuth}
               to="/user"
               >
             <ListItem button key={text}>
