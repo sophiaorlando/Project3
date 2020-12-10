@@ -32,6 +32,7 @@ app.all("/api/*", auth);
 
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/auth", require("./routes/auth"));
+app.use("/posts", require("./routes/blog"));
 // Define API routes here
 
 // Send every other request to the React app
