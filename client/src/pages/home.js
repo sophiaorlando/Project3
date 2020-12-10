@@ -6,7 +6,7 @@ import Footer from "../components/Footer/footer";
 
 export default function HomePage() {
     return (
-        <div id="top">
+        <div>
             <CompJumbo></CompJumbo>
             <JustInShoes></JustInShoes>
             <ScrollUp></ScrollUp>
