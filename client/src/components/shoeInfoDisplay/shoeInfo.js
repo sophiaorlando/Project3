@@ -35,7 +35,7 @@ function SneakerInfo(props) {
 
     const handleWishlistUpdate = () => {
       console.log("------");
-      console.log(AuthInfo.authToken);
+      // console.log(AuthInfo.authToken);
       axios
         .post("/api/wishlist/wishlist", {
           headers: {
