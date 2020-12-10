@@ -8,7 +8,7 @@
 // const AuthForm = (props) => {
 //   const [userName, setUsername] = useState("");
 //   const [password, setPassword] = useState("");
-//   const [action, setAction] = useState("Sign In");
+//   const [action, setAction] = useState("Log In");
 //   const { setUserName, setAuthToken, username } = useAuth();
 
 //   const authenticate = async () => {
@@ -46,7 +46,7 @@
 //       if (props.location.pathname === "/signup") {
 //         setAction("Sign Up");
 //       } else {
-//         setAction("Sign In");
+//         setAction("Log In");
 //       }
 //     }
 //   }, [props]);
@@ -116,7 +116,7 @@
 //         {action === "Sign In" ? (
 //           <Link to="/signup">Don't have an account? Sign Up</Link>
 //         ) : (
-//           <Link to="/login">Already Have An Account? Sign In</Link>
+//           <Link to="/login">Already Have An Account? Log In</Link>
 //         )}
 //       </Grid>
 //     </Grid>
@@ -125,6 +125,9 @@
 // };
 
 // export default withRouter(AuthForm);
+
+
+
 
 
 import React, { useState, useEffect } from "react";
@@ -153,56 +156,95 @@ function Copyright() {
 }
 
 
-function SignInSide(props) {
-
-  const [userName, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [action, setAction] = useState("Sign In");
-  const { setUserName, setAuthToken, username } = useAuth();
-
-  const authenticate = async () => {
-        const basePath = "api/auth/"; // server side path
-        let url = basePath;
-    
-        if (action === "Log In") {
-          url += "login";
-        }
-    
-        console.log(url);
-        console.log(action);
-    
-        const response = await fetch(url, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify({ username: userName, password }),
-        });
-    
-        const json = await response.json();
-        console.log(json);
-        if (response.ok) {
-          setAuthToken(json.token);
-          setUserName(json.user.username); // auth context provider.
-          setUsername(json.user.username);
+const SignInSide = (props) => {
+    const [userName, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [action, setAction] = useState("Log In");
+    const { setUserName, setAuthToken, username } = useAuth();
+  
+    const authenticate = async () => {
+      const basePath = "api/auth/"; // server side path
+      let url = basePath;
+  
+      if (action === "Sign In") {
+        url += "login";
+      }
+  
+      console.log(url);
+      console.log(action);
+  
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ username: userName, password }),
+      });
+  
+      const json = await response.json();
+      console.log(json);
+      if (response.ok) {
+        setAuthToken(json.token);
+        setUserName(json.user.username); // auth context provider.
+        setUsername(json.user.username);
+      } else {
+        alert(json.msg);
+      }
+    };
+  
+    useEffect(() => {
+      if (props.action) {
+        setAction(props.action);
+      } else {
+        if (props.location.pathname === "/signup") {
+          setAction("Sign Up");
         } else {
-          alert(json.msg);
+          setAction("Log In");
         }
-      };
-    
-      useEffect(() => {
-        if (props.action) {
-          setAction(props.action);
-        } else {
-          if (props.location.pathname === "/signup") {
-            setAction("Sign Up");
-          } else {
-            setAction("Log In");
-          }
-        }
-      }, [props]);
-      
-        if (username) {
-          return <Redirect to="/home" />;
-        }
+      }
+    }, [props]);
+  
+    const components = [
+     
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="username"
+        label="User Name"
+        autoFocus
+        name="username"
+        value={userName}
+        onChange={(e) => setUsername(e.target.value)}
+        />,
+
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        label="Password"
+        id="password"
+        name="password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />,
+        <Button
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="primary"
+        className="submit"
+        onClick={() => authenticate()}>
+        {action}
+        </Button>
+      ,
+    ];
+  
+    if (username) {
+      return <Redirect to="/home" />;
+    }
+  
 
   return (
     <Grid id="auth-grid" container component="main" className="root">
@@ -217,7 +259,8 @@ function SignInSide(props) {
             {action}
           </Typography>
           <form className="form" noValidate>
-            <TextField
+              {components}
+            {/* <TextField
               variant="outlined"
               margin="normal"
               required
@@ -249,7 +292,7 @@ function SignInSide(props) {
               className="submit"
               onClick={() => authenticate()}>
               {action}
-            </Button>
+            </Button> */}
             <Grid container>
               <Grid item xs>
                 {action === "Log In" ? (

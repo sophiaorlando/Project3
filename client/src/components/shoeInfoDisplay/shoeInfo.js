@@ -4,6 +4,7 @@ import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotesIcon from '@material-ui/icons/Notes';
 import Footer from "../Footer/footer";
+import axios from "axios";
 
 import "./shoeInfo.css";
 import { Component } from "react";
@@ -31,6 +32,21 @@ function SneakerInfo(props) {
     // styleId: "CU0816-102"
     // title: "Nike Air Force 1 Low White Deep Royal Blue (PS)"
     // year: 2020
+
+    const handleWishlistUpdate = () => {
+      console.log("------");
+      console.log(AuthInfo.authToken);
+      axios
+        .post("/api/wishlist/wishlist", {
+          headers: {
+            "content-type": "application/json",
+            // "x-auth-token": `${AuthInfo.authToken}`
+          }
+        })
+        .then(response => {
+          console.log(response);
+        });
+    };
 
     return (
 
@@ -133,11 +149,11 @@ function SneakerInfo(props) {
                 </MDBRow>
               </div>
 
-              <Link
+              {/* <Link
               to="/wishlist"
-              >
-                <FavoriteIcon className="icon"></FavoriteIcon>
-              </Link>
+              > */}
+                <FavoriteIcon className="icon" onClick={() => handleWishlistUpdate()}></FavoriteIcon>
+              {/* </Link> */}
 
               <Link
               key={props.history}

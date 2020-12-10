@@ -17,6 +17,8 @@ const auth = (req, res, next) => {
   }
 
   const token = req.header("x-auth-token");
+  console.log(req.headers["x-auth-token"]);
+  console.log("**************");
   if (!token) {
     res.status(401).json({ msg: "Invalid token. Access DENIED!" });
     return;
