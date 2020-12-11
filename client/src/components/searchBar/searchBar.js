@@ -4,8 +4,10 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./searchBar.css"
 
+import AllShoes from "../allShoes/allShoes";
 
-function SearchBar() {
+
+function SearchBar(props) {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
@@ -70,6 +72,8 @@ function SearchBar() {
           </div>
         }
       </div>
+
+      {/* <AllShoes key={{sneakers}}/> */}
     </div>
   )
 }

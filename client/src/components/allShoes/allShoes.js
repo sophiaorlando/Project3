@@ -5,9 +5,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotesIcon from '@material-ui/icons/Notes';
 import Footer from "../Footer/footer";
 
+import "../searchBar/searchBar";
 import "../allShoes/allShoes.css";
 
-function gridTable(props) {
+function gridTable({sneakers}) {
+
+  console.log(sneakers)
+
 
   const handleWishlistUpdate = () => {
     console.log("------");
