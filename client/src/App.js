@@ -5,9 +5,6 @@ import Home from "./pages/home";
 import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/navBar";
-// import ShoeInfo from "../src/components/shoeInfo";
-// import Footer from "./components/Footer/footer";
-import "./App.css";
 import NoteApp from "./components/note_app/NoteApp";
 import NotePage from "./components/NotePage/Note";
 import ShoePage from "./components/shoeInfoDisplay/shoeInfo";
@@ -63,7 +60,7 @@ function App() {
             <PrivateRoute exact path="/user" component={NotePage} />
             <PrivateRoute exact path="/wishlist" component={WishListPage} />
             <PrivateRoute exact path="/shoe:id" component={ShoePage} />
-            <PrivateRoute exact path="/allShoes" component={AllShoes} />
+            <PrivateRoute exact path="/allShoes:id" component={AllShoes} />
           </Switch>
           {/* <Footer></Footer> */}
         </BrowserRouter>

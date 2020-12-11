@@ -18,7 +18,7 @@ import NotesIcon from '@material-ui/icons/Notes';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloseIcon from '@material-ui/icons/Close';
 import { useAuth } from '../auth/auth'
-import SearchBar from  "../searchBar/searchBar";
+// import SearchBar from  "../searchBar/searchBar";
 
 import "./navBar.css";
 
@@ -49,7 +49,7 @@ export default function PersistentDrawerRight() {
         <Toolbar>
         <Typography className="title" variant="h6" noWrap>
             <Link
-              to="/"
+              to="/home"
               id="link"
               className={
                 window.location.pathname === "/" || window.location.pathname === "/home"
@@ -61,7 +61,7 @@ export default function PersistentDrawerRight() {
             </Link>
           </Typography>
 
-          <SearchBar></SearchBar>
+          {/* <SearchBar></SearchBar> */}
 
           <IconButton
             color="inherit"
@@ -111,7 +111,6 @@ export default function PersistentDrawerRight() {
           <List>
           {['Notes'].map((text) => (
             <Link
-            key={useAuth}
               to="/user"
               >
             <ListItem button key={text}>
