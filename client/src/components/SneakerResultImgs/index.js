@@ -16,40 +16,40 @@ function Example(props) {
         //first row
         {
             description: [
-                "maya",
-                "2",
-                "3"
+                "adidas Climacool Vento Black Scarlet Gold",
+                "Saucony Kinvara 11 Prinkshop (W)",
+                "Converse Chuck Taylor All-Star 70s Ox Kith x Bergdorf Goodman"
             ],
             image: [
-                "",
-                "random img",
-                "random img"
+                "https://stockx.imgix.net/images/adidas-Climacool-Vento-Black-Scarlet-Gold.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1607177075",
+                "https://stockx.imgix.net/Saucony-Kinvara-11-Prinkshop-W.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1600242208",
+                "https://stockx.imgix.net/images/Converse-Chuck-Taylor-All-Star-70s-Ox-Kith-x-Bergdorf-Goodman.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606849762"
             ]
         },
         // second row
         {
             description: [
-                "4",
-                "5",
-                "6"
+                "Under Armour Embiid One Origin (GS)",
+                "Converse Chuck Taylor All-Star 70s Hi Brain Dead Egret",
+                "Reebok Kamikaze II Low Dime Blue"
             ],
             image: [
-                "random img",
-                "random img",
-                "random img"
+                "https://stockx.imgix.net/Under-Armour-Embiid-One-Origin-GS.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1600508235",
+                "https://stockx.imgix.net/images/Converse-Chuck-Taylor-All-Star-70s-Hi-Brain-Dead-Egret.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1605740827",
+                "https://stockx.imgix.net/images/Reebok-Kamikaze-II-Low-Dime-Blue.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1607103225"
             ]
         },
         // third row
         {
             description: [
-                "7",
-                "8",
-                "9"
+                "adidas Ultra Boost 2.0 DNA Stefon Diggs",
+                "Puma RS-Dreamer J Cole Ebony and Ivory",
+                "Saucony Jazz Low Pro Stars & Stripes"
             ],
             image: [
-                "random img",
-                "random img",
-                "random img"
+                "https://stockx.imgix.net/images/adidas-Ultra-Boost-2-DNA-Stefon-Diggs.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1606895069",
+                "https://stockx.imgix.net/images/Puma-RS-Dreamer-J-Cole-Ebony-and-Ivory.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1607107260",
+                "https://stockx.imgix.net/Saucony-Jazz-Low-Pro-Stars-Stripes.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1590726649"
             ]
         }
     ];
@@ -61,8 +61,8 @@ function Example(props) {
         })
         for (let rowCounter = 0; rowCounter < 3; rowCounter++) {
             for (let cardCounter = 0; cardCounter < 3; cardCounter++) {
-                rows[rowCounter].description[cardCounter] = filteredResults[cardCounter + rowCounter*3].title
-                rows[rowCounter].image[cardCounter] = filteredResults[cardCounter + rowCounter*3].media.imageUrl
+                rows[rowCounter].description[cardCounter] = filteredResults[cardCounter + rowCounter*3]?.title ? filteredResults[cardCounter + rowCounter*3]?.title : "No Shoes to display"
+                rows[rowCounter].image[cardCounter] = filteredResults[cardCounter + rowCounter*3]?.media.imageUrl ? filteredResults[cardCounter + rowCounter*3]?.media.imageUrl : "https://lh3.googleusercontent.com/wftalourGzppS4SxOY5a0AXifIIjRKfnG039lxUE1LoS_9DxaBjc4zfRnhaITuIZiFU=w895-rwa"
             }            
         }
     }
