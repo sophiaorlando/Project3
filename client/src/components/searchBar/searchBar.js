@@ -4,7 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./searchBar.css"
 
-import AllShoes from "../allShoes/allShoes";
+import SneakerResult from "../SneakerResultImgs/index";
+// import AllShoes from "../allShoes/allShoes";
 
 
 function SearchBar(props) {
@@ -18,14 +19,14 @@ function SearchBar(props) {
     { brandName: "Adidas" },
     { brandName: "Asics" },
     { brandName: "Converse" },
-    { brandName: "Jordan" },
-    { brandName: "New Balance" },
+    // { brandName: "Jordan" },
+    // { brandName: "New Balance" },
     { brandName: "Nike" },
-    { brandName: "Puma" },
+    // { brandName: "Puma" },
     { brandName: "Reebok" },
     { brandName: "Saucony" },
     { brandName: "Under Armour" },
-    { brandName: "Vans" }
+    // { brandName: "Vans" }
   ]
   const defaultBrands = {
     options: brandsList,
@@ -44,15 +45,13 @@ function SearchBar(props) {
           setBrand("");
           setSneakers(result);
           // console.log(result.results);
-          setRedirect(true)
         });
     }
   };
   return (
     <div>
       <div>
-        {
-          redirect ? <Redirect to="/allShoes:id" /> : <div className="brand-search">
+      <div className="brand-search"> 
             <div className="search-box col">
               <Autocomplete
                 {...defaultBrands}
@@ -70,10 +69,10 @@ function SearchBar(props) {
               />
             </div>
           </div>
-        }
       </div>
 
       {/* <AllShoes key={{sneakers}}/> */}
+      {/* <SneakerResult key={sneakers}></SneakerResult> */}
     </div>
   )
 }

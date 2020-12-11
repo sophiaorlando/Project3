@@ -33,7 +33,11 @@ app.all("/api/*", auth);
 
 app.use("/api/notes", require("./routes/notes"));
 app.use("/api/auth", require("./routes/auth"));
+
+app.use("/posts", require("./routes/blog"));
+
 app.use("/api/wishlist", require("./routes/wishlist"));
+
 // Define API routes here
 
 // Send every other request to the React app

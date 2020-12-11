@@ -61,7 +61,7 @@ export default function PersistentDrawerRight() {
             </Link>
           </Typography>
 
-          <SearchBar></SearchBar>
+          {/* <SearchBar></SearchBar> */}
 
           <IconButton
             color="inherit"
