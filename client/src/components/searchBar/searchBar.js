@@ -1,30 +1,32 @@
 import React, { useState, Component } from "react";
-import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router-dom'; 
+import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import AllShoes from "../allShoes/allShoes"
 
 import "./searchBar.css"
 
 function SearchBar() {
 
-//   class Search extends Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//       results: [],
-//       term: '',
-//     };
+  //   class Search extends Component {
+  //     constructor(props) {
+  //       super(props);
+  //       this.state = {
+  //       results: [],
+  //       term: '',
+  //     };
 
-//     this.submit = this.submit.bind(this);
-//     this.changeTerm = this.changeTerm.bind(this);
+  //     this.submit = this.submit.bind(this);
+  //     this.changeTerm = this.changeTerm.bind(this);
 
-//   }
-// }
-    
+  //   }
+  // }
+
   // const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
+  const [redirect, setRedirect] = useState(false)
 
   const brandsList = [
     { brandName: "Adidas" },
@@ -56,7 +58,11 @@ function SearchBar() {
           setBrand("");
           setSneakers(result);
           // console.log(result);
-          console.log(result.results); 
+          console.log(result.results);
+          setRedirect(true)
+          // return(
+          //   <Redirect to="/allShoes/"/>
+          // )
         });
     }
   };
@@ -64,28 +70,29 @@ function SearchBar() {
   return (
 
     <div>
-      <div className="brand-search">
-        <div className="search-box col">
-          <Autocomplete
-            {...defaultBrands}
-            id="auto-complete"
-            autoComplete
-            includeInputInList
-            renderInput={(params) =>
-              <TextField {...params}
-                // label="Search brand..."
-                placeholder="Search brand..."
-                margin="normal"
-                onChange={(e) => setBrand(e.target.value)}
-                value={brand}
-                onKeyPress={search}
-              />}
-          />
-        </div>
+      <div>
+        {
+          redirect ? <Redirect to="/allShoes" /> : <div className="brand-search">
+            <div className="search-box col">
+              <Autocomplete
+                {...defaultBrands}
+                id="auto-complete"
+                autoComplete
+                includeInputInList
+                renderInput={(params) =>
+                  <TextField {...params}
+                    // label="Search brand..."
+                    placeholder="Search brand..."
+                    margin="normal"
+                    onChange={(e) => setBrand(e.target.value)}
+                    value={brand}
+                    onKeyPress={search}
+                  />}
+              />
+            </div>
+          </div>
+        }
       </div>
-      {/* <SneakerResults
-      sneakers={sneakers}
-      /> */}
     </div>
 
   )
