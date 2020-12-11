@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./searchBar.css"
+import SneakerResults from '../SneakerResultImgs/index'
+import { Jumbotron } from "react-bootstrap";
 
 
 function SearchBar() {
@@ -10,20 +12,20 @@ function SearchBar() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
-  const [redirect, setRedirect] = useState(false)
+  // const [redirect, setRedirect] = useState(false)
 
   const brandsList = [
     { brandName: "Adidas" },
     { brandName: "Asics" },
     { brandName: "Converse" },
-    { brandName: "Jordan" },
+    // { brandName: "Jordan" },
     { brandName: "New Balance" },
     { brandName: "Nike" },
-    { brandName: "Puma" },
-    { brandName: "Reebok" },
+    // { brandName: "Puma" },
+    // { brandName: "Reebok" },
     { brandName: "Saucony" },
     { brandName: "Under Armour" },
-    { brandName: "Vans" }
+    // { brandName: "Vans" }
   ]
   const defaultBrands = {
     options: brandsList,
@@ -42,15 +44,15 @@ function SearchBar() {
           setBrand("");
           setSneakers(result);
           // console.log(result.results);
-          setRedirect(true)
+          // setRedirect(true)
         });
     }
   };
   return (
     <div>
       <div>
-        {
-          redirect ? <Redirect to="/allShoes:id" /> : <div className="brand-search">
+        <Jumbotron>
+           <div className="brand-search">
             <div className="search-box col">
               <Autocomplete
                 {...defaultBrands}
@@ -68,8 +70,13 @@ function SearchBar() {
               />
             </div>
           </div>
-        }
+          </Jumbotron>
       </div>
+      <div className="resultsImg">
+      <SneakerResults sneakers={sneakers}/>
+
+      </div>
+
     </div>
   )
 }

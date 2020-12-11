@@ -18,7 +18,7 @@ import NotesIcon from '@material-ui/icons/Notes';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloseIcon from '@material-ui/icons/Close';
 import { useAuth } from '../auth/auth'
-import SearchBar from  "../searchBar/searchBar";
+// import SearchBar from  "../searchBar/searchBar";
 
 import "./navBar.css";
 
@@ -61,7 +61,7 @@ export default function PersistentDrawerRight() {
             </Link>
           </Typography>
 
-          <SearchBar></SearchBar>
+          {/* <SearchBar></SearchBar> */}
 
           <IconButton
             color="inherit"

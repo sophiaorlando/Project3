@@ -1,4 +1,4 @@
-import './API'
+import '../searchBar/searchBar'
 import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel'
 import { Paper } from '@material-ui/core'
@@ -16,12 +16,12 @@ function Example(props) {
         //first row
         {
             description: [
-                "1",
+                "maya",
                 "2",
                 "3"
             ],
             image: [
-                "random img",
+                "",
                 "random img",
                 "random img"
             ]
@@ -61,7 +61,7 @@ function Example(props) {
         })
         for (let rowCounter = 0; rowCounter < 3; rowCounter++) {
             for (let cardCounter = 0; cardCounter < 3; cardCounter++) {
-                rows[rowCounter].description[cardCounter] = filteredResults[cardCounter + rowCounter*3].name
+                rows[rowCounter].description[cardCounter] = filteredResults[cardCounter + rowCounter*3].title
                 rows[rowCounter].image[cardCounter] = filteredResults[cardCounter + rowCounter*3].media.imageUrl
             }            
         }
@@ -104,7 +104,7 @@ function CarouselRows(props) {
                     </Paper>
                 </Grid>
                 <Button className="CheckButton">
-                    Check it out!
+                    View All Shoes
             </Button>
                 {/* </Paper> */}
             </Grid>
