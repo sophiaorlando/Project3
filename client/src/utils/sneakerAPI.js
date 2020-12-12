@@ -1,5 +1,20 @@
 import axios from "axios";
 
+export default {
+    displaySneakers: function() {
+        return axios.get("https://api.thesneakerdatabase.com/v1/sneakers?");
+    },
+
+    shoeBrands: function() {
+        return axios.get("https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=" + brand);
+    },
+
+    shoeGender: function() {
+        return axios.get("https://api.thesneakerdatabase.com/v1/genders")
+    }
+    };
+
+
 // https://api.thesneakerdatabase.com/v1/sneakers?limit=50
 
 // 
@@ -15,11 +30,3 @@ import axios from "axios";
 
 // Gender
 // https://api.thesneakerdatabase.com/v1/genders
-
-
-
-export default {
-    displaySneakers: function() {
-        return axios.get("https://api.thesneakerdatabase.com/v1/sneakers?");
-    }
-    };

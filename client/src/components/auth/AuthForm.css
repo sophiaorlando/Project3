@@ -1,0 +1,11 @@
+#background {
+    z-index: 99999 !important;
+    position: relative;
+}
+
+.MuiGrid-grid-xs-8 {
+    flex-grow: 0;
+    max-width: 66.666667%;
+    flex-basis: 66.666667%;
+    text-align: center;
+}

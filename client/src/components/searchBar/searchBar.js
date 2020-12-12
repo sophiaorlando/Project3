@@ -1,49 +1,37 @@
-import React, { useState, Component } from "react";
-import { Router, Route, Redirect, IndexRoute, Link, hashHistory } from 'react-router-dom'; 
+import React, { useState } from "react";
+import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
 import "./searchBar.css"
+import SneakerResults from '../SneakerResultImgs/index'
+import { Jumbotron } from "react-bootstrap";
+
 
 function SearchBar() {
 
-//   class Search extends Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {
-//       results: [],
-//       term: '',
-//     };
-
-//     this.submit = this.submit.bind(this);
-//     this.changeTerm = this.changeTerm.bind(this);
-
-//   }
-// }
-    
-  // const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
+  // const [redirect, setRedirect] = useState(false)
 
   const brandsList = [
     { brandName: "Adidas" },
     { brandName: "Asics" },
     { brandName: "Converse" },
-    { brandName: "Jordan" },
+    // { brandName: "Jordan" },
     { brandName: "New Balance" },
     { brandName: "Nike" },
-    { brandName: "Puma" },
-    { brandName: "Reebok" },
+    // { brandName: "Puma" },
+    // { brandName: "Reebok" },
     { brandName: "Saucony" },
     { brandName: "Under Armour" },
-    { brandName: "Vans" }
+    // { brandName: "Vans" }
   ]
-
   const defaultBrands = {
     options: brandsList,
     getOptionLabel: (option) => option.brandName,
   };
+
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -55,40 +43,42 @@ function SearchBar() {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
-          // console.log(result);
-          console.log(result.results); 
+          // console.log(result.results);
+          // setRedirect(true)
         });
     }
   };
-
   return (
-
     <div>
-      <div className="brand-search">
-        <div className="search-box col">
-          <Autocomplete
-            {...defaultBrands}
-            id="auto-complete"
-            autoComplete
-            includeInputInList
-            renderInput={(params) =>
-              <TextField {...params}
-                // label="Search brand..."
-                placeholder="Search brand..."
-                margin="normal"
-                onChange={(e) => setBrand(e.target.value)}
-                value={brand}
-                onKeyPress={search}
-              />}
-          />
-        </div>
+      <div>
+        <Jumbotron>
+           <div className="brand-search">
+            <div className="search-box col">
+              <Autocomplete
+                {...defaultBrands}
+                id="auto-complete"
+                autoComplete
+                includeInputInList
+                renderInput={(params) =>
+                  <TextField {...params}
+                    placeholder="Search brand..."
+                    margin="normal"
+                    onChange={(e) => setBrand(e.target.value)}
+                    value={brand}
+                    onKeyPress={search}
+                  />}
+              />
+            </div>
+          </div>
+          </Jumbotron>
       </div>
-      {/* <SneakerResults
-      sneakers={sneakers}
-      /> */}
-    </div>
+      <div className="resultsImg">
+      <SneakerResults sneakers={sneakers}/>
 
+      </div>
+
+    </div>
   )
 }
-export default SearchBar;
 
+export default SearchBar;

@@ -100,31 +100,79 @@ function CarouselRows() {
 
     return (
         <div>
-            <h2>{nikeMedia[0]?.name || ""}</h2>
-            <Grid container spacing={3}>
-                <Grid item xs={4}>
-                    <Paper>
-                        {/* <p>{nikeMedia.row.description[0]}</p> */}
-                        <img src={nikeMedia.row.image[0]} style={{ width: "150px", height: "100px" }}></img>
-                    </Paper>
-                </Grid>
-                <Grid item xs={4}>
-                    <Paper>
-                        {/* <p>{nikeMedia.row.description[1]}</p> */}
-                        <img src={nikeMedia.row.image[1]} style={{ width: "150px", height: "100px" }}></img>
-                    </Paper>
-                </Grid>
-                <Grid item xs={4}>
-                    <Paper>
-                        {/* <p>{nikeMedia.row.description[2]}</p> */}
-                        <img src={nikeMedia.row.image[2]} style={{ width: "150px", height: "100px" }}></img>
-                    </Paper>
-                </Grid>
-                {/* <Button className="CheckButton">
-                    Check it out!
-            </Button> */}
-                {/* </Paper> */}
-            </Grid>
+
+            <MDBContainer>
+                <h2 className="h1-responsive font-weight-bold text-left my-5">
+                   Just in Nike
+                </h2>
+                
+                <MDBCarousel
+                activeItem={1}
+                length={3}
+                showControls={true}
+                showIndicators={true}
+                className="z-depth-1"
+                slide
+                >
+                
+                <MDBCarouselInner>
+                    <MDBCarouselItem itemId="1">
+                        <MDBView>            
+                            <MDBCardGroup>
+                                <MDBCard>
+                                <Link to={"/shoe" + nikeMedia[0]?.title || ""}>
+                                    <MDBCardImage 
+                                    src= {nikeMedia[0]?.media.imageUrl || ""}
+                                    alt="MDBCard image cap" 
+                                    top hover
+                                    overlay="white-slight" />
+                                    <MDBCardBody>
+                                        <MDBCardTitle tag="h5">{nikeMedia[0]?.name || ""}</MDBCardTitle>
+                                        <MDBCardText></MDBCardText>
+                                    </MDBCardBody>
+                                </Link>
+                                </MDBCard>
+
+                                <MDBCard>
+                                <Link to={"/shoe" + nikeMedia[1]?.title || ""}>
+                                    <MDBCardImage 
+                                    src={nikeMedia[1]?.media.imageUrl || ""}
+                                    alt="MDBCard image cap" 
+                                    top hover
+                                    overlay="white-slight" />
+                                    <MDBCardBody>
+                                        <MDBCardTitle tag="h5">{nikeMedia[1]?.title || ""}</MDBCardTitle>
+                                        <MDBCardText></MDBCardText>
+                                    </MDBCardBody>
+                                </Link>
+                                </MDBCard>
+
+                                <MDBCard>
+                                <Link to={"/shoe" + nikeMedia[2]?.title || ""}>
+                                    <MDBCardImage 
+                                    src={nikeMedia[2]?.media.imageUrl || ""}
+                                    alt="MDBCard image cap" 
+                                    top hover
+                                    overlay="white-slight" />
+                                    <MDBCardBody>
+                                        <MDBCardTitle tag="h5">{nikeMedia[2]?.title || ""}</MDBCardTitle>
+                                        <MDBCardText></MDBCardText> 
+                                    </MDBCardBody>
+                                </Link>
+                                </MDBCard>
+                            </MDBCardGroup>
+                        </MDBView>
+                    </MDBCarouselItem>
+
+                
+
+
+                    </MDBCarouselInner>
+                </MDBCarousel>
+            </MDBContainer>      
+
+
+        
         </div>
     )
 }

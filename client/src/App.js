@@ -5,14 +5,13 @@ import Home from "./pages/home";
 import { AuthContext } from "./components/auth/auth";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar/navBar";
-// import ShoeInfo from "../src/components/shoeInfo";
-// import Footer from "./components/Footer/footer";
-import "./App.css";
 import NoteApp from "./components/note_app/NoteApp";
 import NotePage from "./components/NotePage/Note";
 import ShoePage from "./components/shoeInfoDisplay/shoeInfo";
 import WishListPage from "./pages/wishlist";
 import AllShoes from "./components/allShoes/allShoes";
+import PostList from "./components/Blog/PostList";
+import Post from "./components/Blog/Post";
 // import Footer from "./components/Footer/footer";
 
 import "./App.css";
@@ -52,7 +51,7 @@ function App() {
     >
       <main>
         <BrowserRouter>
-        <Navbar></Navbar>
+          <Navbar></Navbar>
           <Switch>
             <Route exact path="/" component={AuthForm} />
             <Route exact path="/login" component={AuthForm} />
@@ -63,7 +62,9 @@ function App() {
             <PrivateRoute exact path="/user" component={NotePage} />
             <PrivateRoute exact path="/wishlist" component={WishListPage} />
             <PrivateRoute exact path="/shoe:id" component={ShoePage} />
-            <PrivateRoute exact path="/allShoes:search" component={AllShoes} />
+            <PrivateRoute exact path="/allShoes:id" component={AllShoes} />
+            <PrivateRoute exact path="/posts" component={PostList} />
+            <PrivateRoute exact path="/posts/:id" component={Post} />
           </Switch>
           {/* <Footer></Footer> */}
         </BrowserRouter>
