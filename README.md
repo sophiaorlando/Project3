@@ -1,4 +1,4 @@
-# The Beach Clean Up Initiative
+# Sneaker Freakers
 
 ### Sneaker Freakers is a React Library based interactive application, that allows users to search for sneakers by brand, through a third party API. 
 
