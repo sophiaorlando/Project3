@@ -13,7 +13,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotesIcon from '@material-ui/icons/Notes';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloseIcon from '@material-ui/icons/Close';
@@ -57,7 +56,7 @@ export default function PersistentDrawerRight() {
                   : "nav-link"
               }
             >
-              SNEAKER FREAKERS
+              S/F
             </Link>
           </Typography>
 
@@ -93,13 +92,13 @@ export default function PersistentDrawerRight() {
         </div>
         <Divider />
         <List>
-          {['Wishlist'].map((text) => (
+          {['Notes'].map((text) => (
             <Link
-              to="/wishlist"
+              to="/user"
               >
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={handleDrawerClose}>
               <ListItemIcon>
-                  <FavoriteIcon></FavoriteIcon>
+                <NotesIcon onClick={handleDrawerClose}></NotesIcon>
               </ListItemIcon>
               <ListItemText primary={text}
               style={{ color: "black", textEmphasis: "none" }} 
@@ -107,33 +106,17 @@ export default function PersistentDrawerRight() {
             </ListItem>
             </Link>    
           ))}
+        </List>
 
-          <List>
-          {['Notes'].map((text) => (
-            <Link
-              to="/user"
-              >
-            <ListItem button key={text}>
-              <ListItemIcon>
-                  <NotesIcon></NotesIcon>
-              </ListItemIcon>
-              <ListItemText primary={text}
-              style={{ color: "black", textEmphasis: "none" }} 
-              />
-            </ListItem>
-            </Link>
-          ))}
-        </List>
-        </List>
         <Divider />
         <List onClick={() => logout()}>
           {['Log Out'].map((text) => (
             <Link
               to="/note"
               >
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={handleDrawerClose}>
               <ListItemIcon>
-                  <ExitToAppIcon></ExitToAppIcon>
+                  <ExitToAppIcon onClick={handleDrawerClose}></ExitToAppIcon>
               </ListItemIcon>
               <ListItemText primary={text}
               style={{ color: "black", textEmphasis: "none" }} 

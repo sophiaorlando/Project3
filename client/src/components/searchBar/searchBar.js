@@ -1,29 +1,25 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./searchBar.css"
-
-import SneakerResult from "../SneakerResultImgs/index";
-// import AllShoes from "../allShoes/allShoes";
-
+import SneakerResults from '../SneakerResultImgs/index'
 
 function SearchBar(props) {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
-  const [redirect, setRedirect] = useState(false)
+  // const [redirect, setRedirect] = useState(false);
 
   const brandsList = [
     { brandName: "Adidas" },
-    { brandName: "Asics" },
+    // { brandName: "Asics" },
     { brandName: "Converse" },
     // { brandName: "Jordan" },
     // { brandName: "New Balance" },
     { brandName: "Nike" },
     // { brandName: "Puma" },
-    { brandName: "Reebok" },
+    // { brandName: "Reebok" },
     { brandName: "Saucony" },
     { brandName: "Under Armour" },
     // { brandName: "Vans" }
@@ -32,7 +28,6 @@ function SearchBar(props) {
     options: brandsList,
     getOptionLabel: (option) => option.brandName,
   };
-
 
   const search = (evt) => {
     if (evt.key === "Enter") {
@@ -44,14 +39,19 @@ function SearchBar(props) {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
+          // setRedirect(true);
           // console.log(result.results);
         });
     }
   };
+
   return (
     <div>
-      <div>
-      <div className="brand-search"> 
+      <div className="search-cont">
+        {/* {
+          redirect ? <Redirect to="/allShoes:id" /> 
+          :  */}
+          <div className="brand-search">
             <div className="search-box col">
               <Autocomplete
                 {...defaultBrands}
@@ -60,6 +60,7 @@ function SearchBar(props) {
                 includeInputInList
                 renderInput={(params) =>
                   <TextField {...params}
+                    // label="Search brand..."
                     placeholder="Search brand..."
                     margin="normal"
                     onChange={(e) => setBrand(e.target.value)}
@@ -69,10 +70,12 @@ function SearchBar(props) {
               />
             </div>
           </div>
+        {/* } */}
+      </div>
+      <div className="resultsImg">
+      <SneakerResults sneakers={sneakers}/>
       </div>
 
-      {/* <AllShoes key={{sneakers}}/> */}
-      {/* <SneakerResult key={sneakers}></SneakerResult> */}
     </div>
   )
 }

@@ -4,7 +4,6 @@ const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 const note = require("./models/note");
 const auth = require("./middleware/auth");
-const wishlist = require("./routes/wishlist");
 const app = express();
 
 // Define middleware here
@@ -36,7 +35,6 @@ app.use("/api/auth", require("./routes/auth"));
 
 app.use("/posts", require("./routes/blog"));
 
-app.use("/api/wishlist", require("./routes/wishlist"));
 
 // Define API routes here
 

@@ -1,13 +1,19 @@
-import React from "react";
-import { Jumbotron } from "react-bootstrap";
+import React from 'react';
+
 import "./jumbotron.css";
 
-function CompJumbo() {
-  return (
-    <div>
-      <Jumbotron></Jumbotron>
-    </div>
-  );
+
+function jumbotronComp() {
+    return(
+
+        <div id="overlay">
+            <div id="jumbo-cont">
+                <h1 id="web-name">
+                Sneaker Freakers
+                </h1>
+            </div>
+        </div>
+    )
 }
 
-export default CompJumbo;
+export default jumbotronComp;
