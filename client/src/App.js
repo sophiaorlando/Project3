@@ -63,7 +63,7 @@ function App() {
             <PrivateRoute exact path="/wishlist" component={WishListPage} />
             <PrivateRoute exact path="/shoe:id" component={ShoePage} />
             <PrivateRoute exact path="/allShoes:id" component={AllShoes} />
-            <PrivateRoute exact path="/posts" component={PostList} />
+            <PrivateRoute exact path="/blog" component={PostList} />
             <PrivateRoute exact path="/posts/:id" component={Post} />
           </Switch>
           {/* <Footer></Footer> */}

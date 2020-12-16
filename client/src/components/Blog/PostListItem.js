@@ -6,7 +6,7 @@ class PostListItem extends React.Component {
   renderDate(dateString) {
     const date = new Date(dateString);
 
-    return `${date.getMonth()} ${date.getFullYear()}`;
+    return `${date.getFullYear()}`;
   }
   renderTags(tags) {
     return tags.map((tag) => {

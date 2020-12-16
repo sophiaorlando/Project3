@@ -29,5 +29,9 @@ router.get("/:id", async (req, res) => {
   const post = await Post.findById(req.params.id);
   res.json(post);
 });
-
+// router.delete("/posts/:id", async (req, res) => {
+//   const post = await Post.findByIdAndDelete(req.params.id)
+//     .then(() => res.json("Post has been deleted!"))
+//     .catch(() => res.json({ msg: "Could not find post to delete." }));
+// });
 module.exports = router;
