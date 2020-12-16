@@ -1,0 +1,19 @@
+#about-cont {
+    background-image: url(../images/about.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    padding: 1%;
+}
+
+.about-title {
+    color: #D3D2D2;
+    font-size: 4em;
+
+  }
+
+.about-paragraph {
+    color: #1B0000;
+    font-size: 1.7em;
+  }

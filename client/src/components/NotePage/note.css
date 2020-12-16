@@ -1,0 +1,4 @@
+.MuiSvgIcon-root:hover,
+.MuiTableCell-root.MuiTableCell-body {
+    cursor: pointer;
+}

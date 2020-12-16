@@ -1,0 +1,10 @@
+#giphy {
+    background-image: url(https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/source.gif);
+    /* background-image: url("https://media.giphy.com/media/xT0BKrnIzoS0QFDQhW/giphy.gif"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    margin-top: 5%;
+}
+

@@ -6,6 +6,8 @@ import { useAuth } from "../auth/auth";
 import useFetch from "../../utils/APIFetch";
 import NoteTable from "./NoteTable";
 
+import "../NotePage/note.css";
+
 const NotePage = (props) => {
   const { username } = useAuth();
   const { data, loading } = useFetch("/api/notes", {}, "GET");

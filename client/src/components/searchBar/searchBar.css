@@ -1,36 +1,13 @@
 /**********************************************/
 /* search bar */
 /**********************************************/
-div.jumbotron{
-  background-image: url("https://media.giphy.com/media/xT0BKrnIzoS0QFDQhW/giphy.gif");
-  /* background-image: url("https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/giphy.gif"); */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 80vh;
-  text-align: center;
-  align-content: center;
-}
-
-
-.jumbotron {
-  padding: 2rem 1rem;
-  /* background-color: #e9ecef; */
-  border-radius: 0rem !important;
-  margin-bottom: 4rem;
-}
-
-
 .brand-search {
-  width: 100%;
   display: inline-flex;
-  /* padding: 30%; */
   padding-top: 0;
   padding-bottom: 0%;
-  /* margin-top: 60%; */
-  margin-bottom:80%;
   color: white;
 }
+
 .resultsImg{
   color:black;
 }

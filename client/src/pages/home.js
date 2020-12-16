@@ -1,13 +1,17 @@
 import React from "react";
-import ScrollUp from "../components/scrollUp/scrollUp";
+import CompJumbo from "../components/jumbotron/jumbotron";
+import SearchBar from "../components/searchBar/searchBar";
+import Giphy from "../components/giphy/giphy";
+import About from "../components/about/about";
 import Footer from "../components/Footer/footer";
-import SearchBar from '../components/searchBar/searchBar'
 
 export default function HomePage() {
     return (
         <div>
-            <SearchBar />
-            <ScrollUp></ScrollUp>
+            <CompJumbo></CompJumbo>
+            <SearchBar></SearchBar>
+            <Giphy></Giphy>
+            <About></About>
             <Footer></Footer>
         </div>
     )
