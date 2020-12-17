@@ -47,7 +47,7 @@ function SearchBar(props) {
 
   return (
     <div>
-      <div className="search-cont">
+      <div className="search-cont" style={{padding: "1.5%"}}>
         {/* {
           redirect ? <Redirect to="/allShoes:id" /> 
           :  */}

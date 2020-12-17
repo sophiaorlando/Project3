@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardFooter, MDBCardText } from "mdbreact";
 import NotesIcon from '@material-ui/icons/Notes';
-import Footer from "../Footer/footer";
-
 
 import "../searchBar/searchBar";
 import "./allShoes.css";
-import { Link } from "react-router-dom";
 
 function gridTable(props) {
 
@@ -40,7 +38,7 @@ return (
         {brand && brand.map(item => (
 
             <MDBCol size="4">
-              <Link to={"/shoeInfo" + item.id}>
+              <Link to={"/sneakerInfo" + item.id}>
                 <MDBCard narrow ecommerce className='mb-2' id="all-shoes-card">
                   <MDBCardFooter id="all-shoes-footer" className='px-1'>
                       <span className='float-left' style={{textDecoration: "none", color:"black"}}>
@@ -48,7 +46,6 @@ return (
                       </span>
                       <span className='float-right' style={{textDecoration: "none", color:"black"}}>
                         <NotesIcon></NotesIcon>
-                        {/* {item.releaseDate} */}
                       </span>
                     </MDBCardFooter>
 
@@ -59,9 +56,6 @@ return (
                     alt='shoe photo'
                   />
                   <MDBCardBody cascade>
-                    {/* <p style={{fontSize: "14px", textDecoration:"none", color:"black"}}>
-                        {item.title}
-                    </p> */}
                     <MDBCardFooter id="all-shoes-footer" className='px-1'>
                       <span style={{textDecoration: "none", color:"black"}}>
                         {item.title}
@@ -78,7 +72,6 @@ return (
 
     </MDBContainer>
 
-    <Footer></Footer>
     </div>
 );
 }

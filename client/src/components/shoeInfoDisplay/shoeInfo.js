@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import NotesIcon from '@material-ui/icons/Notes';
-import Footer from "../Footer/footer";
+// import Footer from "../Footer/footer";
 
 import "./shoeInfo.css";
 
@@ -149,7 +149,7 @@ function SneakerInfo(props) {
         </MDBCardBody>
       </MDBCard>
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
       </div>
       
     )
