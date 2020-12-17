@@ -9,6 +9,7 @@ import NoteApp from "./components/note_app/NoteApp";
 import NotePage from "./components/NotePage/Note";
 import ShoePage from "./components/shoeInfoDisplay/shoeInfo";
 import AllShoes from "./components/allShoes/allShoes";
+import GridInfo from "./components/allShoes/gridShoeInfo/sneakerInfo";
 import PostList from "./components/Blog/PostList";
 import Post from "./components/Blog/Post";
 
@@ -60,6 +61,7 @@ function App() {
             <PrivateRoute exact path="/user" component={NotePage} />
             <PrivateRoute exact path="/shoe:id" component={ShoePage} />
             <PrivateRoute exact path="/allShoes:id" component={AllShoes} />
+            <PrivateRoute exact path="/sneakerInfo:id" component={GridInfo} />
             <PrivateRoute exact path="/blog" component={PostList} />
             <PrivateRoute exact path="/posts/:id" component={Post} />
           </Switch>

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {  MDBRow, MDBCol, MDBIcon, MDBCard, MDBCardBody, MDBMask, MDBView } from "mdbreact";
 import NotesIcon from '@material-ui/icons/Notes';
-// import Footer from "../Footer/footer";
 
-import "./shoeInfo.css";
+import "../../shoeInfoDisplay/shoeInfo.css";
 
-function SneakerInfo(props) {
+function IndividualSneakerInfo(props) {
   
+  console.log(props.match.params.id)
+
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
@@ -24,7 +25,7 @@ function SneakerInfo(props) {
     )
       .then((res) => res.json())
       .then((result) => {
-      // console.log(result.results);
+      console.log(result.results);
       setName(result.results[0].name)
       setGender(result.results[0].gender)
       setTitle(result.results[0].title);
@@ -86,7 +87,6 @@ function SneakerInfo(props) {
 
               <div style={{
                 borderBottom: "1px solid #e0e0e0",
-                // marginBottom: "1.5rem"
               }}>
                 <MDBRow>
                   <MDBCol md="9">
@@ -149,10 +149,9 @@ function SneakerInfo(props) {
         </MDBCardBody>
       </MDBCard>
 
-      {/* <Footer></Footer> */}
       </div>
       
     )
 }
 
-export default SneakerInfo;
+export default IndividualSneakerInfo;

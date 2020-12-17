@@ -1,10 +1,8 @@
 #about-cont {
-    background-image: url(../images/about.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 50vh;
-    padding: 1%;
+    padding: 5%;
+    max-width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .about-title {
@@ -15,5 +13,16 @@
 
 .about-paragraph {
     color: #1B0000;
-    font-size: 1.7em;
+    /* font-size: 1.7em; */
   }
+
+#about-sneaker-img {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+
+#about-img {
+  background-image: url(https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/source.gif);
+}
+

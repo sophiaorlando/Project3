@@ -1,8 +1,44 @@
-#footer {
+/* #footer {
     width: 100%;
     padding: 14px;
     background-color: white;
     color: black;
-    /* margin-top: 1.5rem !important; */
+    margin-top: 1.5rem !important;
     margin-top: 0rem !important;
+  } */
+
+  #footer {
+    width: 100%;
+    /* padding: 14px; */
+    padding: 3%;
+    /* background-color: black !important; */
+    color: rgb(10, 10, 10);
+    /* color: white; */
+  }
+
+  #developers {
+    color: white !important;
+    text-decoration: none;
+  }
+
+  .git-icon {
+    border-radius: 16px;
+    width: 30px;
+    margin: 0 auto;
+    /* margin-right: 3em; */
+  }
+  
+  .list-unstyled {
+    margin: 20px;
+    line-height: 2em;
+  }
+
+  p {
+    line-height: 2em;
+    text-align: left !important;
+  }
+
+  #title {
+    font-size: 2.5em;
+    padding: 4%;
   }

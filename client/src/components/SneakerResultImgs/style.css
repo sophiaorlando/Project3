@@ -12,6 +12,7 @@ body {
 
 p {
     text-transform: capitalize;
+    text-align: center;
 }
 
 #carousel p {
