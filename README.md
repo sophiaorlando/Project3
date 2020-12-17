@@ -43,8 +43,7 @@ None
 ## Demo
 
 <!-- Insert Demo of application here -->
-![Example of Applications](assets/ezgif.com-video-to-gif.gif)
-
+![Example of Applications](client/src/assets/Project3Demo.gif)
 
 ## Contributors
 
@@ -81,6 +80,6 @@ None
 
 <!--  Put Deployed Link here-->
 ## Deployed 
-View the deployed site ![here](https://secret-beyond-86832.herokuapp.com/home) 
+https://secret-beyond-86832.herokuapp.com/home
 
 ### If you have any questions, contact the authors directly.
