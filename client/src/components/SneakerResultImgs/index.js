@@ -75,7 +75,6 @@ function Example(props) {
     if (props.sneakers.results) {
         const filteredResults = props.sneakers.results.filter(sneaker =>
             sneaker.media.imageUrl !== "https://stockx-assets.imgix.net/media/New-Product-Placeholder-Default.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=0")
-        // console.log(filteredResults)
         filteredResults.map((sneaker) => {
         })
         for (let rowCounter = 0; rowCounter < 3; rowCounter++) {
@@ -101,7 +100,6 @@ function Example(props) {
 }
 
 function CarouselRows(props) {
-    // console.log(props)
     
     return (
         <div>

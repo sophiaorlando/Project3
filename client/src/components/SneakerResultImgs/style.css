@@ -1,40 +1,33 @@
-body {
-    text-transform: capitalize;
-}
-
 .CarouselItem {
     align-content: center;
     max-width: 100%;
     padding: 3%;
     justify-content: center;
     text-transform: capitalize;
+    text-align: center !important;
 }
 
-p {
-    text-transform: capitalize;
+#carousel {
     text-align: center;
+    text-transform: capitalize;
 }
 
 #carousel p {
-    text-align: center;
+    text-align: center !important;
 }
 
 .MuiGrid-spacing-xs-3 {
-    /* width: calc(100% + 24px); */
-    /* margin: -12px; */
-    /* background-color: blue; */
     justify-content: center;
     align-items: center;
+    text-align: center !important;
 }
 
 .Carousel-next-11 {
     right: 0;
-    /* background-color: black !important; */
 }
 
 .Carousel-prev-12 {
     left: 0;
-    /* background-color: black !important; */
 }
 
 .MuiGrid-spacing-xs-3 > .MuiGrid-item {
@@ -48,16 +41,19 @@ p {
 .MuiButtonBase-root.MuiIconButton-root.Carousel-button-7.Carousel-buttonHidden-10.Carousel-fullHeightHoverButton-8.Carousel-next-11,
 .MuiButtonBase-root.MuiIconButton-root.Carousel-button-7.Carousel-buttonHidden-10.Carousel-fullHeightHoverButton-8.Carousel-prev-12 {
     color: white !important;
-    /* opacity: 1; */
     background-color: white !important;
 }
 
 .MuiGrid-spacing-xs-3 {
     width: calc(100% + 24px);
-    /* margin: -12px; */
     margin: 0px;
 }
 
+.Carousel-buttonWrapper-65:hover .Carousel-button-67 {
+    filter: brightness(120%);
+    opacity: 0.4;
+    background-color: transparent;
+}
 /*************************************/
 /* Media Query */
 /*************************************/
