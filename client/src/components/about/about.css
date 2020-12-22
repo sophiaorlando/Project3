@@ -13,14 +13,7 @@
 
 .about-paragraph {
     color: #1B0000;
-    /* font-size: 1.7em; */
   }
-
-#about-sneaker-img {
-  display: flex;
-  flex-wrap: wrap;
-  height: auto;
-}
 
 #about-img {
   background-image: url(https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/source.gif);

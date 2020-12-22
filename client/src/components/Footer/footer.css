@@ -9,15 +9,12 @@
 
   #footer {
     width: 100%;
-    /* padding: 14px; */
     padding: 3%;
-    /* background-color: black !important; */
     color: rgb(10, 10, 10);
-    /* color: white; */
   }
 
   #developers {
-    color: white !important;
+    color: black !important;
     text-decoration: none;
   }
 
