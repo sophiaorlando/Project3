@@ -1,0 +1,65 @@
+.CarouselItem {
+    align-content: center;
+    max-width: 100%;
+    padding: 3%;
+    justify-content: center;
+    text-transform: capitalize;
+    text-align: center !important;
+}
+
+#carousel {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#carousel p {
+    text-align: center !important;
+}
+
+.MuiGrid-spacing-xs-3 {
+    justify-content: center;
+    align-items: center;
+    text-align: center !important;
+}
+
+.Carousel-next-11 {
+    right: 0;
+}
+
+.Carousel-prev-12 {
+    left: 0;
+}
+
+.MuiGrid-spacing-xs-3 > .MuiGrid-item {
+    padding: 12px;
+}
+
+.MuiPaper-rounded {
+    border-radius: 4px;
+}
+
+.MuiButtonBase-root.MuiIconButton-root.Carousel-button-7.Carousel-buttonHidden-10.Carousel-fullHeightHoverButton-8.Carousel-next-11,
+.MuiButtonBase-root.MuiIconButton-root.Carousel-button-7.Carousel-buttonHidden-10.Carousel-fullHeightHoverButton-8.Carousel-prev-12 {
+    color: white !important;
+    background-color: white !important;
+}
+
+.MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin: 0px;
+}
+
+.Carousel-buttonWrapper-65:hover .Carousel-button-67 {
+    filter: brightness(120%);
+    opacity: 0.4;
+    background-color: transparent;
+}
+/*************************************/
+/* Media Query */
+/*************************************/
+@media only screen and (max-width: 600px) {
+    #carousel p {
+        text-align: center;
+        font-size: 14px;
+    }
+  }

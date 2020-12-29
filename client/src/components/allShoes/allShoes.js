@@ -1,68 +1,77 @@
-import React from "react";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardFooter, MDBCardText } from "mdbreact";
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import NotesIcon from '@material-ui/icons/Notes';
-import Footer from "../Footer/footer";
 
-import "../allShoes/allShoes.css";
+import "../searchBar/searchBar";
+import "./allShoes.css";
 
 function gridTable(props) {
 
-  const handleWishlistUpdate = () => {
-    console.log("------");
-    // console.log(AuthInfo.authToken);
-    axios
-      .post("/api/wishlist/wishlist", {
-        headers: {
-          "content-type": "application/json",
-          // "x-auth-token": `${AuthInfo.authToken}`
-        }
-      })
-      .then(response => {
-        console.log(response);
-      });
-  };
+  console.log(props)
+
+  const [brand, setBrand] = useState("");
+
+    useEffect (() => {
+      fetch(
+        `https://api.thesneakerdatabase.com/v1/sneakers?limit=21&brand=${props.match.params.id}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result.results);
+          setBrand(result.results);  
+        })
+      }, []) 
+
+
 
 return (
     
-    <div>
+    <div id="all-shoes-cont">
     
-    <MDBContainer style={{textAlign:"center", marginTop:"8%"}}>
-        
-        <h2>View All Shoes</h2>
+    <MDBContainer style={{textAlign:"center", marginTop:"10%"}}>
 
-        <MDBRow style={{padding: "6%"}}>
-            <MDBCol size="3">
-            <MDBCard narrow ecommerce className='mb-2'>
-            <MDBCardTitle>
-                      <strong>
-                      {/* {name} */}
-                      </strong>
-                    </MDBCardTitle>
-                    <MDBCardImage
-                    cascade
-                    top
-                    src='https://static.nike.com/a/images/f_auto/q_auto:eco/t_PDP_864_v1/eric5lwitzffpoisq0rj/blazer-mid-77-vintage-mens-shoe-flCCX4.jpg'
-                    alt='shoe photo'
-                  />
-                  <MDBCardBody cascade>
-                    <MDBCardFooter className='px-1'>
-                      <span className='float-left'>
-                      {/* {title} */}
+      <h2 id="all-shoes-brand">Viewing 20+ {props.match.params.id} Shoes</h2>
+
+        
+        <MDBRow id="all-shoes-row">
+        {brand && brand.map(item => (
+
+            <MDBCol size="4">
+              <Link to={"/sneakerInfo" + item.id}>
+                <MDBCard narrow ecommerce className='mb-2' id="all-shoes-card">
+                  <MDBCardFooter id="all-shoes-footer" className='px-1'>
+                      <span className='float-left' style={{textDecoration: "none", color:"black"}}>
+                        ${item.retailPrice}
                       </span>
-                      <span className='float-right'>
-                      <FavoriteIcon className="icon" onClick={() => handleWishlistUpdate()}></FavoriteIcon>
+                      <span className='float-right' style={{textDecoration: "none", color:"black"}}>
                         <NotesIcon></NotesIcon>
                       </span>
                     </MDBCardFooter>
+
+                    <MDBCardImage
+                    cascade
+                    top
+                    src={item.media.imageUrl}
+                    alt='shoe photo'
+                  />
+                  <MDBCardBody cascade>
+                    <MDBCardFooter id="all-shoes-footer" className='px-1'>
+                      <span style={{textDecoration: "none", color:"black"}}>
+                        {item.title}
+                      </span>
+                    </MDBCardFooter>
                   </MDBCardBody>
-                </MDBCard>
+                  </MDBCard>
+                </Link>
             </MDBCol>
+
+                    ))}
+
         </MDBRow>
+
     </MDBContainer>
 
-    <Footer></Footer>
     </div>
 );
 }

@@ -9,6 +9,12 @@
     margin-bottom: 0rem !important;
 }
 
+.container {
+    max-width: 100% !important;
+    /* margin: 5%; */
+    /* margin: 0%; */
+}
+
 .h1-responsive {
     text-transform: capitalize;
 }

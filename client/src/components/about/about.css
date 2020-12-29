@@ -1,0 +1,21 @@
+#about-cont {
+    padding: 5%;
+    max-width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-title {
+    color: #D3D2D2;
+    font-size: 4em;
+
+  }
+
+.about-paragraph {
+    color: #1B0000;
+  }
+
+#about-img {
+  background-image: url(https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/source.gif);
+}
+

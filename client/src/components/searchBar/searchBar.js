@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import "./searchBar.css"
 import SneakerResults from '../SneakerResultImgs/index'
-import { Jumbotron } from "react-bootstrap";
 
-
-function SearchBar() {
+function SearchBar(props) {
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [brand, setBrand] = useState("");
   const [sneakers, setSneakers] = useState({});
-  // const [redirect, setRedirect] = useState(false)
+  // const [redirect, setRedirect] = useState(false);
 
   const brandsList = [
     { brandName: "Adidas" },
-    { brandName: "Asics" },
+    // { brandName: "Asics" },
     { brandName: "Converse" },
     // { brandName: "Jordan" },
-    { brandName: "New Balance" },
+    // { brandName: "New Balance" },
     { brandName: "Nike" },
     // { brandName: "Puma" },
     // { brandName: "Reebok" },
@@ -32,7 +29,6 @@ function SearchBar() {
     getOptionLabel: (option) => option.brandName,
   };
 
-
   const search = (evt) => {
     if (evt.key === "Enter") {
       fetch(
@@ -43,16 +39,19 @@ function SearchBar() {
           setIsLoaded(true);
           setBrand("");
           setSneakers(result);
+          // setRedirect(true);
           // console.log(result.results);
-          // setRedirect(true)
         });
     }
   };
+
   return (
     <div>
-      <div>
-        <Jumbotron>
-           <div className="brand-search">
+      <div className="search-cont" style={{padding: "1.5%"}}>
+        {/* {
+          redirect ? <Redirect to="/allShoes:id" /> 
+          :  */}
+          <div className="brand-search">
             <div className="search-box col">
               <Autocomplete
                 {...defaultBrands}
@@ -61,6 +60,7 @@ function SearchBar() {
                 includeInputInList
                 renderInput={(params) =>
                   <TextField {...params}
+                    // label="Search brand..."
                     placeholder="Search brand..."
                     margin="normal"
                     onChange={(e) => setBrand(e.target.value)}
@@ -70,11 +70,10 @@ function SearchBar() {
               />
             </div>
           </div>
-          </Jumbotron>
+        {/* } */}
       </div>
       <div className="resultsImg">
       <SneakerResults sneakers={sneakers}/>
-
       </div>
 
     </div>

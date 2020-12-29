@@ -43,8 +43,7 @@ None
 ## Demo
 
 <!-- Insert Demo of application here -->
-![Example of Applications](assets/ezgif.com-video-to-gif.gif)
-
+![Example of Applications](client/src/assets/Project3Demo.gif)
 
 ## Contributors
 
@@ -80,6 +79,7 @@ None
 ## View the project repository in GitHub at: https://github.com/sophiaorlando/Project3
 
 <!--  Put Deployed Link here-->
-## View deployed site at: 
+## Deployed 
+https://secret-beyond-86832.herokuapp.com/home
 
 ### If you have any questions, contact the authors directly.

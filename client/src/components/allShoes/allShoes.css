@@ -1,22 +1,37 @@
-.row {
+#all-shoes-cont {
+    margin-top: 5%;
+    padding: 0% !important;
+}
+
+#all-shoes-row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    padding: 6%;
-    /* justify-content: center; */
+    margin: 0;
+    margin-top: 8%;
+    padding: 0;
+    margin-bottom: 15% !important;
 }
 
-.col-3 {
-    text-align: center;
-    border: .5px solid black;
+.col-4 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border: .5px solid black !important;
 }
 
+#all-shoes-card {
+    height: auto;
+    padding: 20%;
+    /* margin: 6% !important; */
+}
+
+#all-shoes-card:hover {
+    opacity: 0.5;
+}
+
+#all-shoes-footer,
 .card-footer:last-child {
-    /* border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px); */
-    border: none !important;
-    background: transparent;
     background-color: transparent;
+    border: none !important;
 }
 
 .MuiSvgIcon-root {
@@ -30,3 +45,27 @@
     margin: 2px;
     user-select: none;
 }
+
+.mb-2, .my-2 {
+    /* margin-bottom: 0.5rem; */
+    margin-bottom: 0rem !important;
+}
+
+#all-shoes-brand {
+    font-size: 20px;
+    color: black;
+    padding: 3%;
+    background-color: white;
+}
+
+/*************************************/
+/* Media Query */
+/*************************************/
+@media only screen and (max-width: 600px) {
+    .col-4 {
+        flex: 100% !important;
+        max-width: 100% !important;
+        /* display: flex !important;
+        flex-wrap: wrap !important; */
+    }
+  }

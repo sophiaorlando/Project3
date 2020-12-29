@@ -1,38 +1,25 @@
 /**********************************************/
 /* search bar */
 /**********************************************/
-div.jumbotron{
-  background-image: url("https://media.giphy.com/media/xT0BKrnIzoS0QFDQhW/giphy.gif");
-  /* background-image: url("https://media.giphy.com/media/3oEhmYMQeV3PY4BcRy/giphy.gif"); */
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 80vh;
-  text-align: center;
-  align-content: center;
+.search-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-transform: capitalize;
 }
-
-
-.jumbotron {
-  padding: 2rem 1rem;
-  /* background-color: #e9ecef; */
-  border-radius: 0rem !important;
-  margin-bottom: 4rem;
-}
-
 
 .brand-search {
-  width: 100%;
   display: inline-flex;
-  /* padding: 30%; */
+  width: 40vw;
   padding-top: 0;
   padding-bottom: 0%;
-  /* margin-top: 60%; */
-  margin-bottom:80%;
   color: white;
+  text-transform: capitalize;
 }
+
 .resultsImg{
   color:black;
+  text-transform: capitalize;
 }
 
 .search-bar{
@@ -57,14 +44,12 @@ div.jumbotron{
 .MuiInputBase-input {
   font: inherit;
   color: currentColor;
-  /* color: black; */
   width: 100%;
   border: 0;
   height: 1.1876em;
   margin: 0;
   display: block;
   padding: 6px 0 7px;
-  /* min-width: 0; */
   background: none;
   box-sizing: content-box;
   animation-name: mui-auto-fill-cancel;
@@ -96,8 +81,8 @@ div.jumbotron{
 .product-container {
   text-align: center;
   width: 100%;
-  /* margin-top: 15%; */
   position: relative !important;
+  text-transform: capitalize;
 }
 
 .brand-title {
@@ -117,6 +102,7 @@ div.jumbotron{
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
+    text-transform: capitalize;
 }
 
 @media (min-width: 600px) {
@@ -155,6 +141,7 @@ div.jumbotron{
   background-clip: border-box;
   border: none !important;
   border-radius: 0rem !important;
+  text-transform: capitalize;
 }
 
 .MuiGrid-spacing-xs-3 > .MuiGrid-item {
