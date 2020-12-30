@@ -123,7 +123,12 @@ const NotePad = (props) => {
           autoFocus
         />
       </Slate>
-      <Button variant="contained" color="primary" onClick={() => buttonClick()}>
+      <Button
+        href="/user"
+        variant="contained"
+        color="primary"
+        onClick={() => buttonClick()}
+      >
         Save
       </Button>
     </Grid>

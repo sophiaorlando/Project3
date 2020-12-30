@@ -33,6 +33,12 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
     }
   };
 
+  function renderDate(dateString) {
+    const date = new Date(dateString);
+
+    return `${date.toDateString()}`;
+  }
+
   return (
     <TableRow
       hover
@@ -42,7 +48,7 @@ const NoteTableRow = ({ itemNumber, note, history }) => {
     >
       <TableCell align="left">{itemNumber}</TableCell>
       <TableCell>{note.title}</TableCell>
-      <TableCell>{note.updatedAt}</TableCell>
+      <TableCell>{renderDate(note.updatedAt)}</TableCell>
       <TableCell onClick={(e) => handleClick(e, "delete")}>
         <Delete />
       </TableCell>

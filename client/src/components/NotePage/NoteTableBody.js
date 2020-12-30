@@ -3,7 +3,7 @@ import TableBody from "@material-ui/core/TableBody";
 import NoteTableRow from "./NoteTableRow";
 
 const NoteTableBody = (props) => {
-  let counter = 0;
+  let counter = 1;
   const { data } = props;
   return (
     <TableBody>
